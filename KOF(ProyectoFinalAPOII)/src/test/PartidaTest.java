@@ -3,6 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
 import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
 import modelo.Jugador;
@@ -49,7 +50,7 @@ class PartidaTest {
 	 *  con tres jugadores
 	 * */
 	void escenario3() {		
-		p = new Partida();
+		escenario1();
 		try {
 			p.agregar("1");
 			p.agregar("0");
@@ -218,6 +219,50 @@ class PartidaTest {
 		} catch (JugadorNoEncontradoException e) {
 			fail("la excepcion no deberia llegar hasta aca");
 		}
+		
+	}
+	
+	/**
+	 * Prueba la existencia de jugadores en el arbol. <br>
+	 * <b> Métodos a probar: </b> 
+	 * <br> existe <br>
+	 * <b> Objetivo: </b> 
+	 * <br> probar que el método existe(), retorna: -true = si el jugador existe
+	 * 												existe en el arbol
+	 * 												-false = de lo contrario </br>
+	 * <b> Resultados esperados: </b> 
+	 * <br> 1. el jugador : "jugadorExiste", es encontrado en el arbol, el metodo retorna true
+	 * 2. el jugador : "jugadorNoExiste", NO es encontrado en el arbol, el metodo retorna false </br>
+	 */
+	@Test
+	void testExiste() {
+		setupEscenario6();
+		
+		assertTrue(	p.existe("jugadorExistente") , "este jugador ya ha sido agregado en el arbol");
+		
+		assertFalse( p.existe("jugadorNoExiste"), "este jugador no esta en el arbol" );
+	}
+	
+	/**
+	 * Prueba la existencia de jugadores en el arbol. <br>
+	 * <b> Métodos a probar: </b> 
+	 * <br> existe <br>
+	 * <b> Objetivo: </b> 
+	 * <br> probar que el método existe(), retorna: -true = si el jugador existe
+	 * 												existe en el arbol
+	 * 												-false = de lo contrario </br>
+	 * <b> Resultados esperados: </b> 
+	 * <br> los jugadores : "jugador9", "jugador3", "jugador5", "jugador6", son 
+	 * encontrados en el arbol, el metodo retorna true en cada caso. </br>
+	 */
+	@Test
+	void testExiste2() {
+		
+		escenario4();
+		assertTrue( p.existe("jugador9") );
+		assertTrue( p.existe("jugador3") );
+		assertTrue( p.existe("jugador5") );
+		assertTrue( p.existe("jugador6") );
 		
 	}
 
