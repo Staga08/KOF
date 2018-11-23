@@ -23,12 +23,36 @@ public class Partida {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Jugador getJugadores() {
+		return jugadores;
+	}
+
+	public void setJugadores(Jugador jugadores) {
+		this.jugadores = jugadores;
+	}
+
+	public Personaje getPersonaje1() {
+		return personaje1;
+	}
+
+	public void setPersonaje1(Personaje personaje1) {
+		this.personaje1 = personaje1;
+	}
+
+	public Personaje getPersonaje2() {
+		return personaje2;
+	}
+
+	public void setPersonaje2(Personaje personaje2) {
+		this.personaje2 = personaje2;
+	}
+	
 	/**
      * Agrega los jugadores en un ABB 
      * @param actual : Jugador - el jugador actual
      * @param nuevo : Jugador - el jugador que se va agregar
      */
-	public void agregarJugadores(Jugador actual, Jugador nuevo) throws JugadorYaRegistradoException{
+	public void agregarJugadores(Jugador actual, Jugador nuevo) {
 		if (jugadores==null) {
 			jugadores=nuevo;
 		}else {
@@ -112,6 +136,10 @@ public class Partida {
             }
             	aux.setSiguiente(nuevo);
         	}
+	}
+	
+	public void cargarPersonajes() {
+		
 	}
 	
 	/**
