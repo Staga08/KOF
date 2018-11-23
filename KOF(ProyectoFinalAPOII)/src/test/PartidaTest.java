@@ -49,6 +49,7 @@ class PartidaTest {
 	 *  con tres jugadores
 	 * */
 	void escenario3() {		
+		p = new Partida();
 		try {
 			p.agregar("1");
 			p.agregar("0");
