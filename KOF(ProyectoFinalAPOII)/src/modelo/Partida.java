@@ -1,9 +1,9 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Universidad Icesi (Cali - Colombia)
- * Departamento TIC - Algoritmos y programación II
+ * Departamento TIC - Algoritmos y programaciï¿½n II
  * Protecto final
- * Autor: Julián Andrés Brito Escobar-Brayan Starlin Garcéz
+ * Autor: Juliï¿½n Andrï¿½s Brito Escobar-Brayan Starlin GarcÃ©s
  * Perido: 2018-2
  * Fecha: 26/11/2018
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,6 +125,7 @@ public class Partida {
 	
 	/**
 	 * Este método permite buscar un jugador, con el puntaje como criterio<br>
+	 * Este mï¿½todo permite buscar un jugador, con el puntaje como criterio<br>
 	 * <b>pre:</b> actual !=null
 	 * @param actual de tipo Jugador - el jugador actual
 	 * @param puntaje de tipo int - el puntaje del jugador que se desea buscar
@@ -191,7 +192,7 @@ public class Partida {
 	}
 	
 	/**
-	 * Este método permite dar el personaje en la posicion dada
+	 * Este mï¿½todo permite dar el personaje en la posicion dada
 	 * @param index de tipo int - la posicion en la lista personaje1
 	 * @return el jugador en esa posicion
 	 */
@@ -208,7 +209,7 @@ public class Partida {
 	}
 	
 	/**
-	 * Este método permite dar el personaje en la posicion dada
+	 * Este mï¿½todo permite dar el personaje en la posicion dada
 	 * @param index de tipo int - la posicion en la lista personaje2
 	 * @return el jugador en esa posicion
 	 */
