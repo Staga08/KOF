@@ -87,4 +87,12 @@ public class Personaje {
 	public void avanzar(int velocidad) {
 		setPosX(posX-=velocidad);
 	}
+	
+	/** 
+	 * retroseder(int velocidad): este metodo permite cambiar la posicion del personaje, simulando el movimiento del mismo
+	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
+	 * */
+	public void retroseder(int velocidad) {
+		setPosX(posX+=velocidad);
+	}
 }
