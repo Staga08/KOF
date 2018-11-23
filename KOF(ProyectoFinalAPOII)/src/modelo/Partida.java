@@ -10,6 +10,8 @@
  */
 package modelo;
 
+
+import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
 import excepciones.PuntajeNoExisteException;
 
@@ -18,6 +20,7 @@ public class Partida {
 	private Jugador jugadores;
 	private Personaje personaje1;
 	private Personaje personaje2;
+	private int numJugadores;
 	
 	public Partida() {
 		// TODO Auto-generated constructor stub
@@ -48,32 +51,77 @@ public class Partida {
 	}
 	
 	/**
-     * Agrega los jugadores en un ABB 
-     * @param actual : Jugador - el jugador actual
-     * @param nuevo : Jugador - el jugador que se va agregar
-     */
-	public void agregarJugadores(Jugador actual, Jugador nuevo) {
-		if (jugadores==null) {
-			jugadores=nuevo;
-		}else {
-			if (nuevo.getPuntaje()<=actual.getPuntaje()) {
-				if (actual.getIzq()==null) {
-					actual.setIzq(nuevo);
-				}else {
-					agregarJugadores(actual.getIzq(), nuevo);
-				}
-			
-			}else {
-				if (nuevo.getPuntaje()>=actual.getPuntaje()) {
-					if (actual.getDer()==null) {
-						actual.setDer(nuevo);
-					}else {
-						agregarJugadores(actual.getDer(), nuevo);
-					}
-				}
+	 * existe(String nickName) : boolean - busca un jugador deacuerdo a su nombre 
+	 * @return true = si el jugador buscado por nombre existe 
+	 * 		   false = si el jugador buscado por nombre NO existe
+	 * */
+	public boolean existe(String nickName) {
+		boolean existe = false ;
+		
+		try {
+			if (buscarJugador(nickName) != null) {
+				existe = true;
 			}
+		}catch (JugadorNoEncontradoException e) {
+			e.getMessage();
 		}
+
+		return existe;
+		
 	}
+	
+	/**
+	 * buscarJugador(String nickName) : Jugador 
+	 * busca un jugador con su nombre pasado por parametro
+	 * si no es encontrado lanza la excepciï¿½n  
+	 * @param nickName : String = nombre del jugador a buscar
+	 * pre: nombre != null , nombre != " "
+	 * @return el jugador que ha sido buscado a traves del nombre
+	 * @throws JugadorNoEncontradoException  
+	 * */
+	public Jugador buscarJugador(String nickName) throws JugadorNoEncontradoException{
+		if(jugadores == null)
+			throw new JugadorNoEncontradoException(nickName);
+		else
+			return jugadores.buscar(nickName);
+		
+	}
+	
+	/**
+	 * agregar(String nickName) : void 
+	 * agrega un nuevo jugador al ABB de jugadores segun elo criterio de ordenamiento correspondiente 
+	 * valida primero si el jugador exite en caso de que no lanza la Excepciï¿½n JugadorExistenteException 
+	 * @param nickName : String - representa el nombre del jugador del juagador que se quiere agregar.
+	 * @throws JugadorNoEncontradoException 
+	 * @throws JugadorExistenteException 
+	 * */
+	public void agregar(String nickName) throws JugadorNoEncontradoException, JugadorYaRegistradoException {
+		
+		if (!existe(nickName)) {
+			Jugador nuevo = new Jugador (nickName, 0);
+			if (jugadores == null) {
+				jugadores = nuevo;
+				numJugadores++;
+			}
+				
+			else {
+				if( jugadores.agregarJugador(nuevo) )
+					numJugadores++;
+			} 	
+		}// fin del if 
+		else {
+			try {
+				Jugador encontrado = buscarJugador(nickName);
+				encontrado.setPuntaje(encontrado.getPuntaje());				
+			}catch (JugadorNoEncontradoException e) {
+				e.getMessage();
+			}
+			
+			throw new JugadorYaRegistradoException(nickName);
+
+		}//fin del else
+	
+	}// fin del metodo
 	
 	/**
 	 * Este método permite buscar un jugador, con el puntaje como criterio<br>
