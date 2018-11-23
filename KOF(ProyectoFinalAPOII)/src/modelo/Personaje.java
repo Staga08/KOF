@@ -14,7 +14,9 @@ public class Personaje {
 	public Personaje() {
 		// TODO Auto-generated constructor stub
 	}
-
+	/** 
+	 * Metodos getters and setters de los atributos de la clase
+	 * */
 	public int getPosX() {
 		return posX;
 	}
@@ -78,5 +80,11 @@ public class Personaje {
 	public void setSiguiente(Personaje siguiente) {
 		this.siguiente = siguiente;
 	}
-
+	/** 
+	 * avanzar(int velocidad): este metodo permite cambiar la posicion del personaje, simulando el movimiento del mismo
+	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
+	 * */
+	public void avanzar(int velocidad) {
+		setPosX(posX-=velocidad);
+	}
 }
