@@ -29,5 +29,6 @@ class PartidaTest {
 		p.agregarJugadores(p.getJugadores(), j4);
 		assertEquals("Jinx", p.getJugadores().getDer().getNickName());
 	}
+// epa colombia
 
 }
