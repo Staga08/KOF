@@ -11,6 +11,8 @@
 package modelo;
 
 
+import java.util.ArrayList;
+
 import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
 import excepciones.PuntajeNoExisteException;
@@ -21,9 +23,11 @@ public class Partida {
 	private Personaje personaje1;
 	private Personaje personaje2;
 	private int numJugadores;
+	private ArrayList<Jugador> mejoresPuntajes ;
 	
 	public Partida() {
-		// TODO Auto-generated constructor stub
+		this.numJugadores = 0;
+		this. mejoresPuntajes = new ArrayList<Jugador>();
 	}
 	
 	public Jugador getJugadores() {
@@ -150,6 +154,104 @@ public class Partida {
 			}
 		}
 	} 
+	
+	public void inOrden(Jugador nodo) {
+		
+		if(nodo.getDer() != null)
+			inOrden(nodo.getDer());
+		mejoresPuntajes.add(nodo);
+		if(nodo.getIzq() != null)
+			inOrden(nodo.getIzq());
+		
+	}
+	
+	public void ordenarPuntagesPorBurbuja() {
+		
+		Jugador[] auxArreglo = new Jugador[mejoresPuntajes.size()];
+		
+		for (int i = 0; i < auxArreglo.length; i++) {
+			auxArreglo[i] = mejoresPuntajes.get(i);
+		}
+				
+		for (int i = 1; i < auxArreglo.length; i++) {
+			for (int j = i; j > 0 && 
+				(auxArreglo[j-1].getPuntaje() - (auxArreglo[j].getPuntaje()) > 0 ); j--) {
+				
+				Jugador tem = auxArreglo[j];
+				auxArreglo[j] = auxArreglo[j-1];
+				auxArreglo[j-1] = tem;
+			}
+		}
+		
+		mejoresPuntajes.removeAll(mejoresPuntajes);
+		for (Jugador jugador : auxArreglo) {
+			mejoresPuntajes.add(jugador);
+		}
+	}
+	
+	/**
+	 * ordenarPuntagesPorSeleccion() : void
+	 * este metodo ordena segun el criterio de seleccion.
+	 * */
+	public void ordenarPuntagesPorSeleccion() {
+		
+		Jugador[] auxArreglo = new Jugador[mejoresPuntajes.size()];
+		
+		for (int i = 0; i < auxArreglo.length; i++) {
+			auxArreglo[i] = mejoresPuntajes.get(i);
+		}
+		
+		for (int i = 0; i < auxArreglo.length-1; i++) {
+			
+			Jugador menor = auxArreglo[1];
+			int cual = 1;
+			
+			for (int j = i + 1; j < auxArreglo.length; j++) {
+				
+				if(auxArreglo[j].getPuntaje() < menor.getPuntaje()) {
+				
+					menor = auxArreglo[j];
+					cual = j;
+				}
+			}
+			Jugador temp = auxArreglo[i];
+			auxArreglo[i] = menor;
+			auxArreglo[cual] = temp;
+		}
+		
+		
+
+		mejoresPuntajes.removeAll(mejoresPuntajes);
+		for (Jugador jugador : auxArreglo) {
+			mejoresPuntajes.add(jugador);
+		}
+	}
+	
+	public void ordenarPorInsercion() {
+		
+		Jugador[] auxArreglo = new Jugador[mejoresPuntajes.size()];
+		
+		for (int i = 0; i < auxArreglo.length; i++) {
+			auxArreglo[i] = mejoresPuntajes.get(i);
+		}
+		
+		for (int i = 1; i < auxArreglo.length; i++) {
+			
+			for (int j = i; j > 0 && 
+				auxArreglo[j-1].getPuntaje() > auxArreglo[j].getPuntaje() ; j--) {
+		
+				Jugador temp = auxArreglo[j];
+				auxArreglo[j] = auxArreglo[j-1];
+				auxArreglo[j-1] = temp;	
+			}	
+		}
+		mejoresPuntajes.removeAll(mejoresPuntajes);
+		for (Jugador jugador : auxArreglo) {
+			mejoresPuntajes.add(jugador);
+		}
+		
+	}
+	
 	
 	/**
      * Crea una lista para agregar los pesonajes que van al lado izquierdo
