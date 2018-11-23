@@ -11,8 +11,12 @@ public class Personaje {
 	private String skin;
 	private Personaje siguiente;
 	
-	public Personaje() {
-		// TODO Auto-generated constructor stub
+	public Personaje(int posX, int posY, int vida, String skin, boolean muerto) {
+		this.posX = posX;
+		this.posY = posY;
+		this.vida = vida;
+		this.skin=skin;
+		this.muerto=muerto;
 	}
 	/** 
 	 * Metodos getters and setters de los atributos de la clase

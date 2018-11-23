@@ -290,7 +290,21 @@ public class Partida {
 	}
 	
 	public void cargarPersonajes() {
+		Personaje ioriP1 = new Personaje(50, 10, 1000, IConstantes.IORI_MOV_DER, false);
+		Personaje ryoP1 = new Personaje(50, 10, 1000, IConstantes.RYO_MOV_DER, false);
+		Personaje terryP1 = new Personaje(50, 10, 1000, IConstantes.RYO_MOV_DER, false);
 		
+		Personaje ioriP2 = new Personaje(500, 10, 1000, IConstantes.IORI_MOV_IZQ, false);
+		Personaje ryoP2 = new Personaje(500, 10, 1000, IConstantes.RYO_MOV_IZQ, false);
+		Personaje terryP2 = new Personaje(500, 10, 1000, IConstantes.RYO_MOV_IZQ, false);
+		
+		crearListaP1(ioriP1);
+		crearListaP1(ryoP1);
+		crearListaP1(terryP1);
+		
+		crearListaP2(ioriP2);
+		crearListaP2(ryoP2);
+		crearListaP2(terryP2);
 	}
 	
 	/**
