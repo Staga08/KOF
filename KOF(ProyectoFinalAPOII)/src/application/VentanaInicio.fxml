@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VentanaInicioController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VentanaInicioController">
    <children>
-      <Button fx:id="prueba" layoutX="271.0" layoutY="142.0" mnemonicParsing="false" text="Papi esto es solo de prueba" />
+      <ImageView fitHeight="342.0" fitWidth="609.0" layoutX="-5.0" layoutY="-3.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/2105853-street-fighter-wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="207.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="32.0" fitWidth="200.0" layoutX="215.0" layoutY="300.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="187.0" layoutX="415.0" layoutY="284.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="prueba" layoutX="14.0" layoutY="245.0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="193.0" style="-fx-background-color: #000000;" text="NUEVA PARTIDA">
+         <font>
+            <Font name="Times Roman" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.3619047619047619" startX="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f4ff29" />
+                  <Stop color="#f4ff29" offset="0.007662835249042145" />
+                  <Stop color="#dd2219" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <Button layoutX="359.0" layoutY="245.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="239.0" style="-fx-background-color: #000000;" text="MOSTRAR PUNTAJES">
+         <font>
+            <Font name="Times Roman" size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.3619047619047619" startX="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f4ff29" />
+                  <Stop color="#f4ff29" offset="0.007662835249042145" />
+                  <Stop color="#dd2219" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+      <ImageView fitHeight="54.0" fitWidth="200.0" layoutX="5.0" layoutY="278.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
