@@ -22,7 +22,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Pane root = (Pane)FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
-			primaryStage.getIcons().add(new Image(new File("").toURI().toString()));
+			primaryStage.getIcons().add(new Image(new File("imagenes/logo.png").toURI().toString()));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
