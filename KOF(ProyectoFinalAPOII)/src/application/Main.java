@@ -35,8 +35,8 @@ public class Main extends Application {
 	public static void mandarPantalla() {
 		try {
 			FXMLLoader loader=new FXMLLoader();
-			loader.setLocation(Main.class.getResource("VentanaJuego.fxml"));
-			BorderPane root2 = loader.load();
+			loader.setLocation(Main.class.getResource("VentanaSelPersonaje.fxml"));
+			Pane root2 = (Pane)loader.load();
 			
 			Stage stage2=new Stage();
 			stage2.setTitle("King of Fighters");

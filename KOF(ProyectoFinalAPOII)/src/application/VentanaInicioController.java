@@ -20,7 +20,7 @@ public class VentanaInicioController {
 	public void action() {
 		
 		prueba.setOnAction(f->{
-		Main.mandarPantalla();
+			Main.mandarPantalla();
 		});
 	}
 
