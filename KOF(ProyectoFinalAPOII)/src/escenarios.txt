@@ -1,0 +1,7 @@
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/1.gif
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/2.gif
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/3.gif
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/4.gif
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/5.gif
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/6.gif
+/KOF(ProyectoFinalAPOII)/imagenes/escenarios/7.gif

@@ -73,4 +73,20 @@ public interface IConstantes {
 	public final static String RYO_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Ryo_selection.jpeg";
 	public final static String IORI_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Iori_selection.jpeg";
 
+	/** 
+	 * Imagenes de los escenarios del juego
+	 * */
+	public final static String CASA_EN_LLAMAS="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/1.gif";
+	public final static String BARCO_EN_RUINAS="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/2.gif";
+	public final static String AFUERAS_DEL_TEMPLO="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/3.gif";
+	public final static String AFUERAS_TEMPLO_NIEVE="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/4.gif";
+	public final static String BLACK_APOKALIPSIS="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/5.gif";
+	public final static String TEMPLO_CUEVA="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/6.gif";
+	public final static String AFUERAS_CHOZA="/KOF(ProyectoFinalAPOII)/imagenes/escenarios/7.gif";
+
+
+
+
+
+
 }
