@@ -342,8 +342,47 @@ public class Partida {
 		return temp;
 	}
 	
+	public boolean isAttackP1() {
+		if (getP1(0).getSkin().equals(IConstantes.IORI_ATAQ_DER)) {
+			return true;
+		}
+		if (getP1(1).getSkin().equals(IConstantes.RYO_ATAQ_DER)) {
+			return true;
+		}
+		if (getP1(2).getSkin().equals(IConstantes.TERRY_ATAQ_IZQ)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isAttackP2() {
+		if (getP2(0).getSkin().equals(IConstantes.IORI_ATAQ_IZQ)) {
+			return true;
+		}
+		if (getP2(1).getSkin().equals(IConstantes.RYO_ATAQ_IZQ)) {
+			return true;
+		}
+		if (getP2(2).getSkin().equals(IConstantes.TERRY_ATAQ_IZQ)) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void pegarse() {
-		
+		if (isAttackP1()==true) {
+			for (int i = 0; i < 2; i++) {
+				if (getP1(i).getPosX()==getP2(i).getPosX()) {
+					getP2(i).setVida(getP2(i).getVida()-IConstantes.DANIOCAUSADO);
+				}
+			}
+		}
+		if (isAttackP2()==true) {
+			for (int i = 0; i < 2; i++) {
+				if (getP1(i).getPosX()==getP2(i).getPosX()) {
+					getP1(i).setVida(getP1(i).getVida()-IConstantes.DANIOCAUSADO);
+				}
+			}
+		}
 	}
 	
 	public boolean gameOver() {
