@@ -32,10 +32,31 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void mandarPantalla() {
+	public static void pantallaJuego() {
 		try {
 			FXMLLoader loader=new FXMLLoader();
 			loader.setLocation(Main.class.getResource("VentanaSelPersonaje.fxml"));
+			Pane root2 = (Pane)loader.load();
+			
+			Stage stage2=new Stage();
+			stage2.setTitle("King of Fighters");
+			stage2.initModality(Modality.WINDOW_MODAL);
+			stage2.initOwner(primaryStage);
+			
+			Scene scene2=new Scene(root2);
+			stage2.setScene(scene2);
+			stage2.showAndWait();
+			primaryStage.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void pantallaPuntajes() {
+		try {
+			FXMLLoader loader=new FXMLLoader();
+			loader.setLocation(Main.class.getResource("VentanaPuntajes.fxml"));
 			Pane root2 = (Pane)loader.load();
 			
 			Stage stage2=new Stage();

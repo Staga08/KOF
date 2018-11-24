@@ -26,7 +26,7 @@
             <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
          </image>
       </ImageView>
-      <Button fx:id="prueba" layoutX="14.0" layoutY="245.0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="193.0" style="-fx-background-color: #000000;" text="NUEVA PARTIDA">
+      <Button fx:id="jugar" layoutX="14.0" layoutY="245.0" lineSpacing="5.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="193.0" style="-fx-background-color: #000000;" text="NUEVA PARTIDA">
          <font>
             <Font name="Times Roman" size="20.0" />
          </font>
@@ -40,7 +40,7 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <Button layoutX="359.0" layoutY="245.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="239.0" style="-fx-background-color: #000000;" text="MOSTRAR PUNTAJES">
+      <Button fx:id="puntajes" layoutX="359.0" layoutY="245.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="239.0" style="-fx-background-color: #000000;" text="MOSTRAR PUNTAJES">
          <font>
             <Font name="Times Roman" size="20.0" />
          </font>

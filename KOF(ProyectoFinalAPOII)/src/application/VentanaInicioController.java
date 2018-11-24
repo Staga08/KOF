@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 public class VentanaInicioController {
 
 	private Stage primaryStage;
-	@FXML Button prueba;
+	
+	@FXML Button jugar;
+	@FXML Button puntajes;
+	
 
 	public void initialize() {
 	action();
@@ -19,10 +22,20 @@ public class VentanaInicioController {
 
 	public void action() {
 		
-		prueba.setOnAction(f->{
-			Main.mandarPantalla();
+		jugar.setOnAction(f->{
+			Main.pantallaJuego();
 		});
+	
+		puntajes.setOnAction(f->{
+			Main.pantallaPuntajes();
+		});
+	
+	
 	}
+
+
+
+
 
 
 }
