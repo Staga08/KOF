@@ -17,6 +17,7 @@ public class VentanaSelPersonajeController implements IConstantes{
 public void initialize() {
 	
 	cargarImagenes();
+	Cargar();
 }
 
 public void cargarImagenes() {
@@ -44,10 +45,12 @@ public void cargarImagenes() {
 	Iori.setGraphic(imagen1);
 	Ryo.setGraphic(imagen2);
 	Terry.setGraphic(imagen3);
-	
-	
-	
-	
 }
+	
+	public void Cargar() {
+		Iori.setOnMouseClicked(e ->{
+			Main.pantallaMapas();
+		});
+	}
 
 }

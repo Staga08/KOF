@@ -23,7 +23,7 @@ public class VentanaInicioController {
 	public void action() {
 		
 		jugar.setOnAction(f->{
-			Main.pantallaJuego();
+			Main.pantallaPersonaje();
 		});
 	
 		puntajes.setOnAction(f->{
