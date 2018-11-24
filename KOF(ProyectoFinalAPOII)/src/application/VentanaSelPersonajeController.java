@@ -15,7 +15,7 @@ public void initialize() {
 }
 
 public void cargarimagenes() {
-	//File iori=new File();
+	//File iori=new File(IORI_ICONO);
 }
 
 }
