@@ -8,15 +8,17 @@ public class Personaje {
 	private int areaY;
 	private int vida;
 	private boolean muerto;
+	private boolean attack;
 	private String skin;
 	private Personaje siguiente;
 	
-	public Personaje(int posX, int posY, int vida, String skin, boolean muerto) {
+	public Personaje(int posX, int posY, int vida, String skin) {
 		this.posX = posX;
 		this.posY = posY;
 		this.vida = vida;
 		this.skin=skin;
-		this.muerto=muerto;
+		this.muerto=false;
+		this.attack=false;
 	}
 	/** 
 	 * Metodos getters and setters de los atributos de la clase
@@ -115,6 +117,64 @@ public class Personaje {
 	 * */
 	public void retrocederP1(int velocidad) {
 		setPosX(posX-=velocidad);
+	}
+	public boolean isAttack() {
+		return attack;
+	}
+	public void setAttack(boolean attack) {
+		this.attack = attack;
+	}
+	
+	public void atacar() {
+		if (isAttack()==false) {
+			if (skin.equals(IConstantes.IORI_MOV_DER)) {
+				setSkin(IConstantes.IORI_ATAQ_DER);
+			}
+			if (skin.equals(IConstantes.RYO_MOV_DER)) {
+				setSkin(IConstantes.RYO_ATAQ_DER);
+			}
+			if (skin.equals(IConstantes.TERRY_MOV_DER)) {
+				setSkin(IConstantes.TERRY_ATAQ_DER);
+			}
+			if (skin.equals(IConstantes.IORI_MOV_IZQ)) {
+				setSkin(IConstantes.IORI_ATAQ_IZQ);
+			}
+			if (skin.equals(IConstantes.RYO_MOV_IZQ)) {
+				setSkin(IConstantes.RYO_ATAQ_IZQ);
+			}
+			if (skin.equals(IConstantes.TERRY_MOV_IZQ)) {
+				setSkin(IConstantes.TERRY_ATAQ_IZQ);
+			}
+			setAttack(true);
+		}
+	}
+	
+	public void dejarDeatacar() {
+		if (skin.equals(IConstantes.IORI_ATAQ_DER)) {
+			setSkin(IConstantes.IORI_MOV_DER);
+		}
+		if (skin.equals(IConstantes.RYO_ATAQ_DER)) {
+			setSkin(IConstantes.RYO_MOV_DER);
+		}
+		if (skin.equals(IConstantes.TERRY_ATAQ_DER)) {
+			setSkin(IConstantes.TERRY_MOV_DER);
+		}
+		if (skin.equals(IConstantes.IORI_ATAQ_IZQ)) {
+			setSkin(IConstantes.IORI_MOV_IZQ);
+		}
+		if (skin.equals(IConstantes.RYO_ATAQ_IZQ)) {
+			setSkin(IConstantes.RYO_MOV_IZQ);
+		}
+		if (skin.equals(IConstantes.TERRY_ATAQ_IZQ)) {
+			setSkin(IConstantes.TERRY_MOV_IZQ);
+		}
+		setAttack(false);
+	}
+	
+	public void muerte() {
+		if (vida==0) {
+			muerto=true;
+		}
 	}
 
 }

@@ -19,11 +19,8 @@ import excepciones.PuntajeNoExisteException;
 
 public class Partida {
 	
-	private Jugador jugadores;
-	private Jugador p1;
-	private Jugador p2;
-	private Personaje personaje1;
-	private Personaje personaje2;
+	private Jugador jugador1;
+	private Jugador jugador2;
 	private int numJugadores;
 	private ArrayList<Jugador> mejoresPuntajes;
 	private boolean gameOver;
@@ -34,27 +31,11 @@ public class Partida {
 	}
 	
 	public Jugador getJugadores() {
-		return jugadores;
+		return jugador1;
 	}
 
 	public void setJugadores(Jugador jugadores) {
-		this.jugadores = jugadores;
-	}
-
-	public Personaje getPersonaje1() {
-		return personaje1;
-	}
-
-	public void setPersonaje1(Personaje personaje1) {
-		this.personaje1 = personaje1;
-	}
-
-	public Personaje getPersonaje2() {
-		return personaje2;
-	}
-
-	public void setPersonaje2(Personaje personaje2) {
-		this.personaje2 = personaje2;
+		this.jugador1 = jugadores;
 	}
 	
 	/**
@@ -87,10 +68,10 @@ public class Partida {
 	 * @throws JugadorNoEncontradoException  
 	 * */
 	public Jugador buscarJugador(String nickName) throws JugadorNoEncontradoException{
-		if(jugadores == null)
+		if(jugador1 == null)
 			throw new JugadorNoEncontradoException(nickName);
 		else
-			return jugadores.buscar(nickName);
+			return jugador1.buscar(nickName);
 		
 	}
 	
@@ -106,15 +87,15 @@ public class Partida {
 		
 		if (!existe(nickName)) {
 			Jugador nuevo = new Jugador (nickName, 0);
-			if (jugadores == null) {
-				jugadores = nuevo;
+			if (jugador1 == null) {
+				jugador1 = nuevo;
 				numJugadores++;
 			}
 				
 			else {
-				if( jugadores.agregarJugador(nuevo) )
+				if( jugador1.agregarJugador(nuevo) )
 					numJugadores++;
-			} 	
+				} 	
 		}// fin del if 
 		else {
 			try {
@@ -255,145 +236,13 @@ public class Partida {
 		
 	}
 	
-	
-	/**
-     * Crea una lista para agregar los pesonajes que van al lado izquierdo
-     * @param p1 : Personaje - nuevo personaje1
-     */
-	public void crearListaP1(Personaje p1) {
-		Personaje nuevo = p1;
-		Personaje aux = personaje1;
-        if (personaje1==null) {
-        	personaje1 = nuevo;
-        } else{    
-        	
-            while(aux.getSiguiente() != null){
-                aux = aux.getSiguiente();
-            }
-            	aux.setSiguiente(nuevo);
-        	}
-	}
-	
-	/**
-     * Crea una lista para agregar los personajes quen van al lado derecho
-     * @param p2 : Personaje - nuevo personaje2
-     */
-	public void crearListaP2(Personaje p2) {
-		Personaje nuevo = p2;
-		Personaje aux = personaje2;
-        if (personaje2==null) {
-        	personaje2 = nuevo;
-        } else{    
-        	
-            while(aux.getSiguiente() != null){
-                aux = aux.getSiguiente();
-            }
-            	aux.setSiguiente(nuevo);
-        	}
-	}
-	
-	public void cargarPersonajes() {
-		Personaje ioriP1 = new Personaje(50, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_DER, false);
-		Personaje ryoP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER, false);
-		Personaje terryP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_DER, false);
-		
-		Personaje ioriP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_IZQ, false);
-		Personaje ryoP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ, false);
-		Personaje terryP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_IZQ, false);
-		
-		crearListaP1(ioriP1);
-		crearListaP1(ryoP1);
-		crearListaP1(terryP1);
-		
-		crearListaP2(ioriP2);
-		crearListaP2(ryoP2);
-		crearListaP2(terryP2);
-	}
-	
-	/**
-	 * Este m�todo permite dar el personaje en la posicion dada
-	 * @param index de tipo int - la posicion en la lista personaje1
-	 * @return el jugador en esa posicion
-	 */
-	public Personaje getP1(int index) {
-		int c = 0;
-		Personaje temp = personaje1;
-		
-			while (temp!=null && c<index) {
-				
-				temp=temp.getSiguiente();
-				c++;
-			}
-		return temp;
-	}
-	
-	/**
-	 * Este m�todo permite dar el personaje en la posicion dada
-	 * @param index de tipo int - la posicion en la lista personaje2
-	 * @return el jugador en esa posicion
-	 */
-	public Personaje getP2(int index) {
-		int c = 0;
-		Personaje temp = personaje2;
-		
-			while (temp!=null && c<index) {
-				
-				temp=temp.getSiguiente();
-				c++;
-			}
-		return temp;
-	}
-	
-	public boolean isAttackP1() {
-		if (getP1(0).getSkin().equals(IConstantes.IORI_ATAQ_DER)) {
-			return true;
-		}
-		if (getP1(1).getSkin().equals(IConstantes.RYO_ATAQ_DER)) {
-			return true;
-		}
-		if (getP1(2).getSkin().equals(IConstantes.TERRY_ATAQ_DER)) {
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean isAttackP2() {
-		if (getP2(0).getSkin().equals(IConstantes.IORI_ATAQ_IZQ)) {
-			return true;
-		}
-		if (getP2(1).getSkin().equals(IConstantes.RYO_ATAQ_IZQ)) {
-			return true;
-		}
-		if (getP2(2).getSkin().equals(IConstantes.TERRY_ATAQ_IZQ)) {
-			return true;
-		}
-		return false;
-	}
-	
 	public void pegarse() {
-		if (isAttackP1()==true) {
-			for (int i = 0; i < 2; i++) {
-				if (getP1(i).getPosX()==getP2(i).getPosX()) {
-					getP2(i).setVida(getP2(i).getVida()-IConstantes.DANIOCAUSADO);
-				}
-			}
-		}
-		if (isAttackP2()==true) {
-			for (int i = 0; i < 2; i++) {
-				if (getP1(i).getPosX()==getP2(i).getPosX()) {
-					getP1(i).setVida(getP1(i).getVida()-IConstantes.DANIOCAUSADO);
-				}
-			}
-		}
+		
 	}
 	
 	public boolean gameOver() {
 		gameOver = false;
-		for (int i = 0; i < 2; i++) {
-			if (getP1(i).isMuerto()||getP2(i).isMuerto()) {
-				gameOver = true;
-			}
-		}
+		
 		return gameOver;
 	}
 
