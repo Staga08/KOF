@@ -67,6 +67,12 @@ public interface IConstantes {
 	public final static String TERRY_ATAQ_IZQ="/KOF(ProyectoFinalAPOII)/imagenes/terry izq/Aucg2s.gif";
 	
 	/** 
+	 * Imagenes del personaje TERRY facing to the right
+	 * */
+	public final static String TERRY_MOV_DER="/KOF(ProyectoFinalAPOII)/imagenes/terry der/oie_241746232c2JZbQ.gif";
+	public final static String TERRY_ATAQ_DER="/KOF(ProyectoFinalAPOII)/imagenes/terry der/oie_24174942DzuiwSRG.gif";
+	
+	/** 
 	 * Imagenes de los iconos de seleccion de personajes
 	 * */
 	public final static String TERRY_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Terry_selection.jpeg";
