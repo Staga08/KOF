@@ -293,11 +293,11 @@ public class Partida {
 	public void cargarPersonajes() {
 		Personaje ioriP1 = new Personaje(50, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_DER, false);
 		Personaje ryoP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER, false);
-		Personaje terryP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER, false);
+		Personaje terryP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_DER, false);
 		
 		Personaje ioriP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_IZQ, false);
 		Personaje ryoP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ, false);
-		Personaje terryP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ, false);
+		Personaje terryP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_IZQ, false);
 		
 		crearListaP1(ioriP1);
 		crearListaP1(ryoP1);
@@ -349,7 +349,7 @@ public class Partida {
 		if (getP1(1).getSkin().equals(IConstantes.RYO_ATAQ_DER)) {
 			return true;
 		}
-		if (getP1(2).getSkin().equals(IConstantes.TERRY_ATAQ_IZQ)) {
+		if (getP1(2).getSkin().equals(IConstantes.TERRY_ATAQ_DER)) {
 			return true;
 		}
 		return false;
