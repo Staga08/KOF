@@ -9,6 +9,8 @@ public class VentanaJuegoController {
 private ImageView p1;
 @FXML
 private ImageView p2;
+@FXML
+private ImageView back;
 
 
 

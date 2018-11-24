@@ -85,18 +85,36 @@ public class Personaje {
 		this.siguiente = siguiente;
 	}
 	/** 
-	 * avanzar(int velocidad): este metodo permite cambiar la posicion del personaje, simulando el movimiento del mismo
+	 * avanzar(int velocidad): este metodo permite cambiar la posicion del personaje, manipulado por el jugador 2, simulando el movimiento del mismo
 	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
 	 * */
-	public void avanzar(int velocidad) {
+	public void avanzarP2(int velocidad) {
 		setPosX(posX-=velocidad);
 	}
 	
 	/** 
-	 * retroseder(int velocidad): este metodo permite cambiar la posicion del personaje, simulando el movimiento del mismo
+	 * retroseder(int velocidad): este metodo permite cambiar la posicion del personaje,manipulado por el jugador 2, simulando el movimiento del mismo
 	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
 	 * */
-	public void retroseder(int velocidad) {
+	public void retrosederP2(int velocidad) {
 		setPosX(posX+=velocidad);
 	}
+	
+	/** 
+	 * avanzar(int velocidad): este metodo permite cambiar la posicion del personaje, manipulado por el jugador 1, simulando el movimiento del mismo
+	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
+	 * */
+	public void avanzarP1(int velocidad) {
+		setPosX(posX+=velocidad);
+	}
+	
+	
+	/** 
+	 * retroseder(int velocidad): este metodo permite cambiar la posicion del personaje,manipulado por el jugador 1, simulando el movimiento del mismo
+	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
+	 * */
+	public void retrocederP1(int velocidad) {
+		setPosX(posX-=velocidad);
+	}
+
 }
