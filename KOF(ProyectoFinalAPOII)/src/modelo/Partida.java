@@ -20,6 +20,8 @@ import excepciones.PuntajeNoExisteException;
 public class Partida {
 	
 	private Jugador jugadores;
+	private Jugador p1;
+	private Jugador p2;
 	private Personaje personaje1;
 	private Personaje personaje2;
 	private int numJugadores;
@@ -129,7 +131,7 @@ public class Partida {
 	}// fin del metodo
 	
 	/**
-	 * Este método permite buscar un jugador, con el puntaje como criterio<br>
+	 * Este mï¿½todo permite buscar un jugador, con el puntaje como criterio<br>
 	 * Este mï¿½todo permite buscar un jugador, con el puntaje como criterio<br>
 	 * <b>pre:</b> actual !=null
 	 * @param actual de tipo Jugador - el jugador actual

@@ -6,6 +6,8 @@ import excepciones.JugadorNoEncontradoException;
 
 public class Jugador  implements Serializable , Comparable<Jugador>{
 	
+	private Personaje p1;
+	private Personaje p2;
 	private String nickName; 
 	private int puntaje;
 	private Jugador izq;
@@ -16,6 +18,22 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 		this.puntaje=puntaje;
 	}
 
+	public Personaje getP1() {
+		return p1;
+	}
+
+	public void setP1(Personaje p1) {
+		this.p1 = p1;
+	}
+
+	public Personaje getP2() {
+		return p2;
+	}
+
+	public void setP2(Personaje p2) {
+		this.p2 = p2;
+	}
+	
 	public String getNickName() {
 		return nickName;
 	}
@@ -119,5 +137,6 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 	public int compareTo(Jugador jugador) {
 		return nickName.compareToIgnoreCase(jugador.getNickName());
 	}
+
 
 }

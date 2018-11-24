@@ -16,13 +16,14 @@ import modelo.Partida;
 public class Main extends Application {
 	private static Stage primaryStage;
 	private static Partida partidilla;
+	Pane root;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			Pane root = (Pane)FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
 			primaryStage.getIcons().add(new Image(new File("").toURI().toString()));
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
