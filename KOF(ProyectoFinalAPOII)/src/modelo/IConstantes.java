@@ -4,10 +4,20 @@ package modelo;
  * */
 public interface IConstantes {
 
+	/** 
+	 * Constantes usadas para diferenciar al jugador uno del dos
+	 * */
 	public final static String PLAYERONE="CHARACTER_ONE";
 	public final static String PLAYERTWO="CHARACTER_TWO";
-
+	
+	/** 
+	 * Constante que represente la cantidad de vida que cada personaje tendra
+	 * */
 	public final static int CANTIDADVIDA=20;
+	
+	/** 
+	 * Constante que representa el daño causado por los ataques de los personajes
+	 * */
 	public final static int DANIOCAUSADO=5;
 	
 	/** 
@@ -39,7 +49,12 @@ public interface IConstantes {
 	 * */
 	public final static String TERRY_MOV_IZQ="/KOF(ProyectoFinalAPOII)/imagenes/terry izq/terry-12-stance.gif";
 	public final static String TERRY_ATAQ_IZQ="/KOF(ProyectoFinalAPOII)/imagenes/terry izq/Aucg2s.gif";
-
-
+	
+	/** 
+	 * Imagenes de los iconos de seleccion de personajes
+	 * */
+	public final static String TERRY_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Terry_selection.jpeg";
+	public final static String RYO_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Ryo_selection.jpeg";
+	public final static String IORI_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Iori_selection.jpeg";
 
 }
