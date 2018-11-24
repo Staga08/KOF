@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Partida;
-
+//BLABKA
 
 public class Main extends Application {
 	private static Stage primaryStage;
