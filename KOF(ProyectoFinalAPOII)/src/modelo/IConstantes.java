@@ -11,6 +11,22 @@ public interface IConstantes {
 	public final static String PLAYERTWO="CHARACTER_TWO";
 	
 	/** 
+	 * Constantes usadas para establecer el tamaño de los personajes
+	 * */
+	public final static int ALTO=150;
+	public final static int ANCHO=100;
+	/** 
+	 * Constantes usadas para establecer la posicion X y Y del personaje 1
+	 * */
+	public final static int POSX_P1=500;
+	public final static int POSY_P1=10;
+	
+	/** 
+	 * Constantes usadas para establecer la posicion X y Y del personaje 2
+	 * */
+	public final static int POSX_P2=100;
+	public final static int POSY_P2=10;
+	/** 
 	 * Constante que represente la cantidad de vida que cada personaje tendra
 	 * */
 	public final static int CANTIDADVIDA=20;
