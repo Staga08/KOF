@@ -34,11 +34,11 @@ public class Main extends Application {
 	public static void mandarPantalla() {
 		try {
 			FXMLLoader loader=new FXMLLoader();
-			loader.setLocation(Main.class.getResource("Tablero.fxml"));
+			loader.setLocation(Main.class.getResource("VentanaJuego.fxml"));
 			BorderPane root2 = loader.load();
 			
 			Stage stage2=new Stage();
-			stage2.setTitle("Buscaminas");
+			stage2.setTitle("King of Fighters");
 			stage2.initModality(Modality.WINDOW_MODAL);
 			stage2.initOwner(primaryStage);
 			
