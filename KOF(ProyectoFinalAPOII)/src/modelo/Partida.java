@@ -342,6 +342,10 @@ public class Partida {
 		return temp;
 	}
 	
+	public void pegarse() {
+		
+	}
+	
 	public boolean gameOver() {
 		gameOver = false;
 		for (int i = 0; i < 2; i++) {
