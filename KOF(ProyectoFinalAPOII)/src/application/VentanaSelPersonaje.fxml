@@ -4,12 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="396.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VentanaSelPersonajeController">
    <children>
-      <Button fx:id="Ryo" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" prefHeight="162.0" prefWidth="194.0" text="Button" />
-      <Button fx:id="Iori" layoutX="228.0" layoutY="81.0" mnemonicParsing="false" prefHeight="162.0" prefWidth="194.0" text="Button" />
-      <Button fx:id="Terry" layoutX="445.0" layoutY="78.0" mnemonicParsing="false" prefHeight="162.0" prefWidth="180.0" text="Button" />
+      <Button fx:id="Ryo" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" />
+      <Button fx:id="Iori" layoutX="228.0" layoutY="81.0" mnemonicParsing="false" />
+      <Button fx:id="Terry" layoutX="445.0" layoutY="78.0" mnemonicParsing="false" />
       <Label layoutX="94.0" layoutY="283.0" text="RYO" />
       <Label layoutX="308.0" layoutY="283.0" text="IORI" />
       <Label layoutX="518.0" layoutY="283.0" text="TERRY" />

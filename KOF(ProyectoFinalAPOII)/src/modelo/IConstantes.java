@@ -3,7 +3,7 @@ package modelo;
  * Clase interfaz que contiene todas las constantes usadas en el proyecto
  * */
 public interface IConstantes {
-
+	public final static int TAMANHO_ICONOS=150;
 	/** 
 	 * Constantes usadas para diferenciar al jugador uno del dos
 	 * */
@@ -75,9 +75,9 @@ public interface IConstantes {
 	/** 
 	 * Imagenes de los iconos de seleccion de personajes
 	 * */
-	public final static String TERRY_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Terry_selection.jpeg";
-	public final static String RYO_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Ryo_selection.jpeg";
-	public final static String IORI_ICONO="/KOF(ProyectoFinalAPOII)/imagenes/iconos_seleccion/Iori_selection.jpeg";
+	public final static String TERRY_ICONO="imagenes/iconos_seleccion/Terry_selection.jpeg";
+	public final static String RYO_ICONO="imagenes/iconos_seleccion/Ryo_selection.jpeg";
+	public final static String IORI_ICONO="imagenes/iconos_seleccion/Iori_selection.jpeg";
 
 	/** 
 	 * Imagenes de los escenarios del juego

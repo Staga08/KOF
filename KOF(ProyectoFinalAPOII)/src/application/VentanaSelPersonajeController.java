@@ -32,6 +32,15 @@ public void cargarImagenes() {
 	ImageView imagen2 = new ImageView(image2);
 	ImageView imagen3 = new ImageView(image3);
 	
+	imagen1.setFitHeight(TAMANHO_ICONOS);
+	imagen1.setFitWidth(TAMANHO_ICONOS);
+	
+	imagen2.setFitHeight(TAMANHO_ICONOS);
+	imagen2.setFitWidth(TAMANHO_ICONOS);
+	
+	imagen3.setFitHeight(TAMANHO_ICONOS);
+	imagen3.setFitWidth(TAMANHO_ICONOS);
+	
 	Iori.setGraphic(imagen1);
 	Ryo.setGraphic(imagen2);
 	Terry.setGraphic(imagen3);
