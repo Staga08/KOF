@@ -13,12 +13,12 @@ public interface IConstantes {
 	/** 
 	 * Constante que represente la cantidad de vida que cada personaje tendra
 	 * */
-	public final static int CANTIDADVIDA=20;
+	public final static int CANTIDADVIDA=1000;
 	
 	/** 
 	 * Constante que representa el daño causado por los ataques de los personajes
 	 * */
-	public final static int DANIOCAUSADO=5;
+	public final static int DANIOCAUSADO=100;
 	
 	/** 
 	 * Imagenes del personaje RYO facing to the left

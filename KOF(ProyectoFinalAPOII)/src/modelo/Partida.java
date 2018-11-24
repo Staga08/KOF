@@ -23,7 +23,8 @@ public class Partida {
 	private Personaje personaje1;
 	private Personaje personaje2;
 	private int numJugadores;
-	private ArrayList<Jugador> mejoresPuntajes ;
+	private ArrayList<Jugador> mejoresPuntajes;
+	private boolean gameOver;
 	
 	public Partida() {
 		this.numJugadores = 0;
@@ -290,13 +291,13 @@ public class Partida {
 	}
 	
 	public void cargarPersonajes() {
-		Personaje ioriP1 = new Personaje(50, 10, 1000, IConstantes.IORI_MOV_DER, false);
-		Personaje ryoP1 = new Personaje(50, 10, 1000, IConstantes.RYO_MOV_DER, false);
-		Personaje terryP1 = new Personaje(50, 10, 1000, IConstantes.RYO_MOV_DER, false);
+		Personaje ioriP1 = new Personaje(50, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_DER, false);
+		Personaje ryoP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER, false);
+		Personaje terryP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER, false);
 		
-		Personaje ioriP2 = new Personaje(500, 10, 1000, IConstantes.IORI_MOV_IZQ, false);
-		Personaje ryoP2 = new Personaje(500, 10, 1000, IConstantes.RYO_MOV_IZQ, false);
-		Personaje terryP2 = new Personaje(500, 10, 1000, IConstantes.RYO_MOV_IZQ, false);
+		Personaje ioriP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_IZQ, false);
+		Personaje ryoP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ, false);
+		Personaje terryP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ, false);
 		
 		crearListaP1(ioriP1);
 		crearListaP1(ryoP1);
@@ -339,6 +340,16 @@ public class Partida {
 				c++;
 			}
 		return temp;
+	}
+	
+	public boolean gameOver() {
+		gameOver = false;
+		for (int i = 0; i < 2; i++) {
+			if (getP1(i).isMuerto()||getP2(i).isMuerto()) {
+				gameOver = true;
+			}
+		}
+		return gameOver;
 	}
 
 }
