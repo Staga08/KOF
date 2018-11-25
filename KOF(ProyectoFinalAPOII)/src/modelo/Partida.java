@@ -26,6 +26,7 @@ public class Partida {
 	private boolean gameOver;
 	private int posP;
 	private int posP2;
+	private String back;
 	
 	public Partida() {
 		this.jugador1=null;
@@ -284,6 +285,14 @@ public class Partida {
 
 	public void setPosP2(int posP2) {
 		this.posP2 = posP2;
+	}
+
+	public String getBack() {
+		return back;
+	}
+
+	public void setBack(String back) {
+		this.back = back;
 	}
 
 }

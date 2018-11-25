@@ -1,8 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="application.VentanaSelMapaController">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VentanaSelMapaController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="607.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/BLACK.jpg" />
+         </image>
+      </ImageView>
+      <ChoiceBox fx:id="mapa" layoutX="79.0" layoutY="34.0" prefHeight="27.0" prefWidth="342.0" />
+      <ImageView fitHeight="112.0" fitWidth="200.0" layoutX="192.0" layoutY="288.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="112.0" fitWidth="200.0" layoutY="288.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="112.0" fitWidth="200.0" layoutX="400.0" layoutY="288.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="siguiente" layoutX="252.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: #000000 #000000;" text="ACEPTAR">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.11538461538461542" startX="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f4ff29" />
+                  <Stop color="#dd2219" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button fx:id="preview" layoutX="439.0" layoutY="32.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="135.0" style="-fx-background-color: #000000 #000000;" text="SELECCIONAR">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.11538461538461542" startX="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#f4ff29" />
+                  <Stop color="#dd2219" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="imagensel" fitHeight="250.0" fitWidth="500.0" layoutX="50.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>
