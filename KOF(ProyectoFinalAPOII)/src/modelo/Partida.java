@@ -24,27 +24,27 @@ import excepciones.PuntajeNoExisteException;
 
 public class Partida {
 	
-	private Jugador jugador1;
-	private Jugador jugador2;
+	private Jugador jugadores;
 	private int numJugadores;
 	private ArrayList<Jugador> mejoresPuntajes;
 	private boolean gameOver;
 	private int posP;
 	private int posP2;
 	private String back;
+	private Personaje personaje;
 	
 	public Partida() {
-		this.jugador1=null;
+		this.jugadores=null;
 		this.numJugadores = 0;
 		this. mejoresPuntajes = new ArrayList<Jugador>();
 	}
 	
 	public Jugador getJugadores() {
-		return jugador1;
+		return jugadores;
 	}
 
 	public void setJugadores(Jugador jugadores) {
-		this.jugador1 = jugadores;
+		this.jugadores = jugadores;
 	}
 	
 	/**
@@ -77,10 +77,10 @@ public class Partida {
 	 * @throws JugadorNoEncontradoException  
 	 * */
 	public Jugador buscarJugador(String nickName) throws JugadorNoEncontradoException{
-		if(jugador1 == null)
+		if(jugadores == null)
 			throw new JugadorNoEncontradoException(nickName);
 		else
-			return jugador1.buscar(nickName);
+			return jugadores.buscar(nickName);
 		
 	}
 	
@@ -96,13 +96,13 @@ public class Partida {
 		
 		if (!existe(nickName)) {
 			Jugador nuevo = new Jugador (nickName, 0);
-			if (jugador1 == null) {
-				jugador1 = nuevo;
+			if (jugadores == null) {
+				jugadores = nuevo;
 				numJugadores++;
 			}
 				
 			else {
-				if( jugador1.agregarJugador(nuevo) )
+				if( jugadores.agregarJugador(nuevo) )
 					numJugadores++;
 				} 	
 		}// fin del if 
@@ -244,28 +244,60 @@ public class Partida {
 		}
 		
 	}
-	
-	public int posicionPersonaje(int pos) {
-		posP = pos;
-		return pos;
-	}
-	public int posicionPersonaje2(int pos) {
-		setPosP2(pos);
-		return pos;
-	}
-	
-	public Personaje escojerPersonajeP1(int index) {
-		jugador1 = new Jugador("se", 0);
-		jugador1.cargarPersonajesP1();
-		return jugador1.get(index);	
-	}
-	
-	public Personaje escojerPersonajeP2(int index) {
-		jugador2 = new Jugador("se", 0);
-		jugador2.cargarPersonajesP2();
-		return jugador2.get(index);	
+	/**
+     * Crea una lista para agregar los pesonajes que van al lado izquierdo
+     * @param p1 : Personaje - nuevo personaje1
+     */
+	public void crearLista(Personaje p1) {
+		Personaje nuevo = p1;
+		Personaje aux = personaje;
+        if (personaje==null) {
+        	personaje = nuevo;
+        } else{    
+        	
+            while(aux.getSiguiente() != null){
+                aux = aux.getSiguiente();
+            }
+            	aux.setSiguiente(nuevo);
+        	}
 	}
 	
+	/**
+	 * Este metodo permite cargar los Personajes del juego y agregarlos a la lista
+	 */
+	public void cargarPersonajes() {
+		Personaje ioriP1 = new Personaje(50, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_DER);
+		Personaje ryoP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER);
+		Personaje terryP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_DER);
+		Personaje ioriP2 = new Personaje(500, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_IZQ);
+		Personaje ryoP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ);
+		Personaje terryP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_IZQ);
+		
+		crearLista(ioriP1);
+		crearLista(ryoP1);
+		crearLista(terryP1);
+		crearLista(ioriP2);
+		crearLista(ryoP2);
+		crearLista(terryP2);
+	}
+		
+	/**
+	 * Este m�todo permite dar el personaje en la posicion dada
+	 * @param index de tipo int - la posicion en la lista personaje1
+	 * @return el jugador en esa posicion
+	 */
+	public Personaje get(int index) {
+		int c = 0;
+		Personaje temp = personaje;
+		
+			while (temp!=null && c<index) {
+				
+				temp=temp.getSiguiente();
+				c++;
+			}
+		return temp;
+	}
+		
 	public void pegarse() {
 		
 	}
@@ -275,19 +307,30 @@ public class Partida {
 		
 		return gameOver;
 	}
-
+	
+	/**
+	 * Este metodo permite saber cual personaje escojio el jugador del lado izquierdo
+	 */
 	public int getPosP() {
 		return posP;
 	}
+	/**
+	 * Este metodo permite saber cual personaje escojio el jugador del lado izquierdo
+	 */
 
 	public void setPosP(int posP) {
 		this.posP = posP;
 	}
-
+	
+	/**
+	 * Este metodo permite saber cual personaje escojio el jugador del lado derecho
+	 */
 	public int getPosP2() {
 		return posP2;
 	}
-
+	/**
+	 * Este metodo permite saber cual personaje escojio el jugador del lado derecho
+	 */
 	public void setPosP2(int posP2) {
 		this.posP2 = posP2;
 	}
@@ -333,27 +376,8 @@ public class Partida {
 			String result= listarEscenarios();
 			String[] epa=result.split("-");
 			return epa[index];
-			
-		
+	}
 	
-	
-	}
-
-	public Jugador getJugador1() {
-		return jugador1;
-	}
-
-	public void setJugador1(Jugador jugador1) {
-		this.jugador1 = jugador1;
-	}
-
-	public Jugador getJugador2() {
-		return jugador2;
-	}
-
-	public void setJugador2(Jugador jugador2) {
-		this.jugador2 = jugador2;
-	}
 
 
 }

@@ -45,9 +45,10 @@ public class VentanaJuegoController {
 	 * para mostrarlas en la ventana principal de juego
 	 */
 	public void cargar() {
+		Main.getPartida().cargarPersonajes();
 		back.setImage(new Image(new File(Main.getPartida().getBack()).toURI().toString()));
-		p1.setImage(new Image(new File(Main.getPartida().escojerPersonajeP1(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
-		p2.setImage(new Image(new File(Main.getPartida().escojerPersonajeP2(Main.getPartida().getPosP2()).getSkin()).toURI().toString()));
+		p1.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
+		p2.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP2()).getSkin()).toURI().toString()));
 		
 	}
 	
@@ -55,15 +56,15 @@ public class VentanaJuegoController {
 		avanzar = new Timeline(new KeyFrame(Duration.millis(30), f-> {
 			if (p1.getLayoutX()==300) {
 				avanzar.stop();
-				Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).atacar();
-				p1.setImage(new Image(new File(Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
+				Main.getPartida().get(Main.getPartida().getPosP()).atacar();
+				p1.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
 //				p1.setFitHeight(400);
 //				p1.setFitHeight(200);
 			}
-			Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).avanzarP1(5);
-			p1.setLayoutX(Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).getPosX());
-			Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).avanzarP2(3);
-			p2.setLayoutX(Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).getPosX());
+			Main.getPartida().get(Main.getPartida().getPosP()).avanzarP1(5);
+			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().get(Main.getPartida().getPosP2()).avanzarP2(3);
+			p2.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP2()).getPosX());
 			
 		}));
 		avanzar.setCycleCount(Timeline.INDEFINITE);

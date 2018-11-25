@@ -10,7 +10,7 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 	private int puntaje;
 	private Jugador izq;
 	private Jugador der;
-	private Personaje personaje;
+	
 	
 	public Jugador(String nickname, int puntaje) {
 		this.nickName=nickname;
@@ -47,14 +47,6 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 
 	public void setDer(Jugador der) {
 		this.der = der;
-	}
-	
-	public Personaje getPersonaje() {
-		return personaje;
-	}
-
-	public void setPersonaje(Personaje p1) {
-		this.personaje = p1;
 	}
 		
 	/**
@@ -127,61 +119,6 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 	@Override
 	public int compareTo(Jugador jugador) {
 		return nickName.compareToIgnoreCase(jugador.getNickName());
-	}
-	
-	/**
-     * Crea una lista para agregar los pesonajes que van al lado izquierdo
-     * @param p1 : Personaje - nuevo personaje1
-     */
-	public void crearLista(Personaje p1) {
-		Personaje nuevo = p1;
-		Personaje aux = personaje;
-        if (personaje==null) {
-        	personaje = nuevo;
-        } else{    
-        	
-            while(aux.getSiguiente() != null){
-                aux = aux.getSiguiente();
-            }
-            	aux.setSiguiente(nuevo);
-        	}
-	}
-	
-	public void cargarPersonajesP1() {
-		Personaje ioriP1 = new Personaje(50, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_DER);
-		Personaje ryoP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER);
-		Personaje terryP1 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_DER);
-		
-		crearLista(ioriP1);
-		crearLista(ryoP1);
-		crearLista(terryP1);
-	}
-	
-	public void cargarPersonajesP2() {
-		Personaje ioriP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_IZQ);
-		Personaje ryoP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_IZQ);
-		Personaje terryP2 = new Personaje(500, 10,  IConstantes.CANTIDADVIDA, IConstantes.TERRY_MOV_IZQ);
-		
-		crearLista(ioriP2);
-		crearLista(ryoP2);
-		crearLista(terryP2);
-	}
-	
-	/**
-	 * Este m�todo permite dar el personaje en la posicion dada
-	 * @param index de tipo int - la posicion en la lista personaje1
-	 * @return el jugador en esa posicion
-	 */
-	public Personaje get(int index) {
-		int c = 0;
-		Personaje temp = personaje;
-		
-			while (temp!=null && c<index) {
-				
-				temp=temp.getSiguiente();
-				c++;
-			}
-		return temp;
 	}
 	
 

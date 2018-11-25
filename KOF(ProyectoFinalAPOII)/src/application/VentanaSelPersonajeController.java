@@ -67,18 +67,16 @@ public class VentanaSelPersonajeController implements IConstantes{
 	 * para asi ser mostrada mas adelante como el personaje jugable que el jugador escogio.
 	 */
 	public void escojerPersonaje() {
-
-			
 		Iori.setOnMouseClicked(e ->{
-			Main.getPartida().posicionPersonaje(0);
+			Main.getPartida().setPosP(0);;
 			escojerPersonaje2();
 		});
 		Ryo.setOnMouseClicked(e ->{
-			Main.getPartida().posicionPersonaje(1);
+			Main.getPartida().setPosP(1);
 			escojerPersonaje2();
 		});
 		Terry.setOnMouseClicked(e ->{
-			Main.getPartida().posicionPersonaje(2);
+			Main.getPartida().setPosP(2);
 			escojerPersonaje2();
 		});
 	}
@@ -91,15 +89,15 @@ public class VentanaSelPersonajeController implements IConstantes{
 	public void escojerPersonaje2() {
 	
 		Iori.setOnMouseClicked(e ->{
-			Main.getPartida().posicionPersonaje2(0);
+			Main.getPartida().setPosP2(3);
 			Main.pantallaMapas();
 		});
 		Ryo.setOnMouseClicked(e ->{
-			Main.getPartida().posicionPersonaje2(1);
+			Main.getPartida().setPosP2(4);
 			Main.pantallaMapas();
 		});
 		Terry.setOnMouseClicked(e ->{
-			Main.getPartida().posicionPersonaje2(2);
+			Main.getPartida().setPosP2(5);
 			Main.pantallaMapas();
 		});
 	}
