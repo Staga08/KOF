@@ -25,6 +25,7 @@ public class Partida {
 	private ArrayList<Jugador> mejoresPuntajes;
 	private boolean gameOver;
 	private int posP;
+	private int posP2;
 	
 	public Partida() {
 		this.jugador1=null;
@@ -242,6 +243,10 @@ public class Partida {
 		posP = pos;
 		return pos;
 	}
+	public int posicionPersonaje2(int pos) {
+		setPosP2(pos);
+		return pos;
+	}
 	
 	public Personaje escojerPersonajeP1(int index) {
 		jugador1 = new Jugador("se", 0);
@@ -271,6 +276,14 @@ public class Partida {
 
 	public void setPosP(int posP) {
 		this.posP = posP;
+	}
+
+	public int getPosP2() {
+		return posP2;
+	}
+
+	public void setPosP2(int posP2) {
+		this.posP2 = posP2;
 	}
 
 }

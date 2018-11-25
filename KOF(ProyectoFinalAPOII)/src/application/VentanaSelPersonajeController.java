@@ -14,73 +14,74 @@ public class VentanaSelPersonajeController implements IConstantes{
 	@FXML Button Terry;
 	@FXML Button Ryo;
 	private int i;
+	
+	public VentanaSelPersonajeController() {
+		this.i=0;
+	}
+	
+	public void initialize() {
+		cargarImagenes();
+		escojerPersonaje();
+	}
 
-public void initialize() {
-	i=0;
-	cargarImagenes();
-	escojerPersonaje();
-}
-
-public void cargarImagenes() {
-	File iori=new File(IORI_ICONO);
-	File ryo= new File(RYO_ICONO);
-	File terry=new File(TERRY_ICONO);
+	public void cargarImagenes() {
+		File iori=new File(IORI_ICONO);
+		File ryo= new File(RYO_ICONO);
+		File terry=new File(TERRY_ICONO);
 	
-	Image image1= new Image(iori.toURI().toString());
-	Image image2= new Image(ryo.toURI().toString());
-	Image image3= new Image(terry.toURI().toString());
+		Image image1= new Image(iori.toURI().toString());
+		Image image2= new Image(ryo.toURI().toString());
+		Image image3= new Image(terry.toURI().toString());
 	
-	ImageView imagen1 = new ImageView(image1);
-	ImageView imagen2 = new ImageView(image2);
-	ImageView imagen3 = new ImageView(image3);
+		ImageView imagen1 = new ImageView(image1);
+		ImageView imagen2 = new ImageView(image2);
+		ImageView imagen3 = new ImageView(image3);
 	
-	imagen1.setFitHeight(TAMANHO_ICONOS);
-	imagen1.setFitWidth(TAMANHO_ICONOS);
+		imagen1.setFitHeight(TAMANHO_ICONOS);
+		imagen1.setFitWidth(TAMANHO_ICONOS);
 	
-	imagen2.setFitHeight(TAMANHO_ICONOS);
-	imagen2.setFitWidth(TAMANHO_ICONOS);
+		imagen2.setFitHeight(TAMANHO_ICONOS);
+		imagen2.setFitWidth(TAMANHO_ICONOS);
 	
-	imagen3.setFitHeight(TAMANHO_ICONOS);
-	imagen3.setFitWidth(TAMANHO_ICONOS);
+		imagen3.setFitHeight(TAMANHO_ICONOS);
+		imagen3.setFitWidth(TAMANHO_ICONOS);
 	
-	Iori.setGraphic(imagen1);
-	Ryo.setGraphic(imagen2);
-	Terry.setGraphic(imagen3);
-
-}
+		Iori.setGraphic(imagen1);
+		Ryo.setGraphic(imagen2);
+		Terry.setGraphic(imagen3);
+	}
 	
 	public void escojerPersonaje() {
-		
-		if (i<1) {
+
+			
 		Iori.setOnMouseClicked(e ->{
 			Main.getPartida().posicionPersonaje(0);
-			i++;
-			escojerPersonaje();
+			escojerPersonaje2();
 		});
 		Ryo.setOnMouseClicked(e ->{
 			Main.getPartida().posicionPersonaje(1);
-			i++;
-			escojerPersonaje();
+			escojerPersonaje2();
 		});
 		Terry.setOnMouseClicked(e ->{
 			Main.getPartida().posicionPersonaje(2);
-			i++;
-			escojerPersonaje();
+			escojerPersonaje2();
 		});
-		}else {
-			Iori.setOnMouseClicked(e ->{
-				Main.getPartida().posicionPersonaje(0);
-				Main.pantallaMapas();
-			});
-			Ryo.setOnMouseClicked(e ->{
-				Main.getPartida().posicionPersonaje(1);
-				Main.pantallaMapas();
-			});
-			Terry.setOnMouseClicked(e ->{
-				Main.getPartida().posicionPersonaje(2);
-				Main.pantallaMapas();
-			});
-		}
+	}
+	
+	public void escojerPersonaje2() {
+	
+		Iori.setOnMouseClicked(e ->{
+			Main.getPartida().posicionPersonaje2(0);
+			Main.pantallaMapas();
+		});
+		Ryo.setOnMouseClicked(e ->{
+			Main.getPartida().posicionPersonaje2(1);
+			Main.pantallaMapas();
+		});
+		Terry.setOnMouseClicked(e ->{
+			Main.getPartida().posicionPersonaje2(2);
+			Main.pantallaMapas();
+		});
 	}
 
 }
