@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -16,6 +17,7 @@ import modelo.Partida;
 public class Main extends Application {
 	private static Stage primaryStage;
 	private static Partida partidilla = new Partida();
+
 	
 	
 	@Override
@@ -23,7 +25,7 @@ public class Main extends Application {
 		try {
 			Pane root = (Pane)FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
 			primaryStage.getIcons().add(new Image(new File("imagenes/logo.png").toURI().toString()));
-			Scene scene = new Scene(root);
+			 Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -87,6 +89,21 @@ public class Main extends Application {
 			
 			Scene scene2=new Scene(root2);
 			stage2.setScene(scene2);
+			scene2.setOnKeyPressed(e ->{
+				if (e.getCode()==KeyCode.A) {
+					System.out.println("you has pressed A");
+				}
+				if (e.getCode()==KeyCode.D) {
+					System.out.println("you has pressed D");
+				}
+				if (e.getCode()==KeyCode.LEFT) {
+					System.out.println("you has pressed left");
+				}
+				if (e.getCode()==KeyCode.RIGHT) {
+					System.out.println("you has pressed right");
+				}
+			
+			});
 			stage2.show();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -114,6 +131,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	public static void main(String[] args) {
 		launch(args);

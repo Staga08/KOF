@@ -5,6 +5,8 @@ import java.io.File;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,11 +15,12 @@ import javafx.scene.input.KeyEvent;
 import modelo.IConstantes;
 
 public class VentanaJuegoController {
-
+ 
 	@FXML private ImageView p1;
 	@FXML private ImageView p2;
 	@FXML private ImageView back;
 	@FXML private Timeline avanzar;
+	
 	
 	/**
 	 * initialize(): void
@@ -26,7 +29,7 @@ public class VentanaJuegoController {
 	 */
 	public void initialize() {
 		cargar();
-		
+//		moverJugador();
 		
 	}  
 	
@@ -41,7 +44,10 @@ public class VentanaJuegoController {
 		p2.setImage(new Image(new File(Main.getPartida().escojerPersonajeP2(Main.getPartida().getPosP2()).getSkin()).toURI().toString()));
 		
 	}
-
+	
+	public static void moverJugador() {
+		
+	}
 	
 	public void keyPressed(KeyEvent e) {
 		
