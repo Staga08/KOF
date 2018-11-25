@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,8 @@ public class VentanaSelMapaController {
 	private Button preview;
 	@FXML
 	private ImageView imagensel;
+	
+	String result;
 	
 	public void initialize() {
 		mapas();
@@ -77,38 +80,80 @@ public class VentanaSelMapaController {
 			
 			if(sel.equals("Casa en llamas")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.CASA_EN_LLAMAS).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.CASA_EN_LLAMAS);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(0)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(0));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}else if(sel.equals("Barco en ruinas")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.BARCO_EN_RUINAS).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.BARCO_EN_RUINAS);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(1)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(1));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}else if(sel.equals("Afueras del templo")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.AFUERAS_DEL_TEMPLO).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.AFUERAS_DEL_TEMPLO);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(2)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(2));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}else if(sel.equals("Afueras del templo(Nieve)")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.AFUERAS_TEMPLO_NIEVE).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.AFUERAS_TEMPLO_NIEVE);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(3)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(3));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}else if(sel.equals("Black Apokalipsis")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.BLACK_APOKALIPSIS).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.BLACK_APOKALIPSIS);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(4)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(4));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}else if(sel.equals("Templo en la cueva")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.TEMPLO_CUEVA).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.TEMPLO_CUEVA);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(5)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(5));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				
 			}else if(sel.equals("Afueras de la choza")) {
 				
-				imagensel.setImage(new Image(new File(IConstantes.AFUERAS_CHOZA).toURI().toString()));
-				Main.getPartida().setBack(IConstantes.AFUERAS_CHOZA);
+				try {
+					imagensel.setImage(new Image(new File(Main.getPartida().darEscenario(6)).toURI().toString()));
+					Main.getPartida().setBack(Main.getPartida().darEscenario(6));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 			
 		});

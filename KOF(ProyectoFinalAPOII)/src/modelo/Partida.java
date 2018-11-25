@@ -11,8 +11,13 @@
 package modelo;
 
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import application.Main;
 import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
 import excepciones.PuntajeNoExisteException;
@@ -294,5 +299,29 @@ public class Partida {
 	public void setBack(String back) {
 		this.back = back;
 	}
+
+	public String listarEscenarios() throws IOException {
+		String listado="";
+		String cadena;
+		FileReader f = new FileReader("data/escenarios.txt");
+	    BufferedReader b = new BufferedReader(f);
+	      while((cadena = b.readLine())!=null) {
+	          listado+=cadena+"-";
+	      }
+	      b.close();
+	return listado;
+	}
+
+	public String darEscenario(int index) throws IOException {
+		
+			String result= listarEscenarios();
+			String[] epa=result.split("-");
+			return epa[index];
+			
+		
+	
+	
+	}
+
 
 }
