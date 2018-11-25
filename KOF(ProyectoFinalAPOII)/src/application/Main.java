@@ -15,7 +15,7 @@ import modelo.Partida;
 
 public class Main extends Application {
 	private static Stage primaryStage;
-	private static Partida partidilla;
+	private static Partida partidilla = new Partida();
 	Pane root;
 	
 	@Override

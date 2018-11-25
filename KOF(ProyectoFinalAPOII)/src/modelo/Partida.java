@@ -24,8 +24,10 @@ public class Partida {
 	private int numJugadores;
 	private ArrayList<Jugador> mejoresPuntajes;
 	private boolean gameOver;
+	private int posP;
 	
 	public Partida() {
+		this.jugador1=null;
 		this.numJugadores = 0;
 		this. mejoresPuntajes = new ArrayList<Jugador>();
 	}
@@ -236,6 +238,17 @@ public class Partida {
 		
 	}
 	
+	public int posicionPersonaje(int pos) {
+		posP = pos;
+		return pos;
+	}
+	
+	public Personaje escojerPersonaje(int index) {
+		jugador1 = new Jugador("se", 0);
+		jugador1.cargarPersonajesP1();
+		return jugador1.get(index);	
+	}
+	
 	public void pegarse() {
 		
 	}
@@ -244,6 +257,14 @@ public class Partida {
 		gameOver = false;
 		
 		return gameOver;
+	}
+
+	public int getPosP() {
+		return posP;
+	}
+
+	public void setPosP(int posP) {
+		this.posP = posP;
 	}
 
 }

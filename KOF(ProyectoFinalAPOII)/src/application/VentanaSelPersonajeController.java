@@ -49,6 +49,7 @@ public void cargarImagenes() {
 	
 	public void Cargar() {
 		Iori.setOnMouseClicked(e ->{
+			Main.getPartida().posicionPersonaje(0);
 			Main.pantallaMapas();
 		});
 	}

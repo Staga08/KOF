@@ -21,7 +21,7 @@ public class VentanaJuegoController {
 	
 	public void cargar() {
 		back.setImage(new Image(new File(IConstantes.BLACK_APOKALIPSIS).toURI().toString()));
-		p1.setImage(new Image(new File(IConstantes.IORI_MOV_DER).toURI().toString()));
+		p1.setImage(new Image(new File(Main.getPartida().escojerPersonaje(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
 		p2.setImage(new Image(new File(IConstantes.RYO_MOV_IZQ).toURI().toString()));
 	}
 
