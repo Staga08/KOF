@@ -17,8 +17,10 @@ import modelo.Partida;
 public class Main extends Application {
 	private static Stage primaryStage;
 	private static Partida partidilla = new Partida();
-
-	
+		
+	public  Main() {
+		
+	}
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -89,6 +91,7 @@ public class Main extends Application {
 			
 			Scene scene2=new Scene(root2);
 			stage2.setScene(scene2);
+			 
 			scene2.setOnKeyPressed(e ->{
 				if (e.getCode()==KeyCode.A) {
 					System.out.println("you has pressed A");
@@ -98,6 +101,7 @@ public class Main extends Application {
 				}
 				if (e.getCode()==KeyCode.LEFT) {
 					System.out.println("you has pressed left");
+					
 				}
 				if (e.getCode()==KeyCode.RIGHT) {
 					System.out.println("you has pressed right");

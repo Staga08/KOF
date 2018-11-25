@@ -2,6 +2,10 @@ package application;
 
 import java.io.File;
 
+import com.sun.javafx.geom.Point2D;
+import com.sun.javafx.scene.paint.GradientUtils.Point;
+
+import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
 import modelo.IConstantes;
 
 public class VentanaJuegoController {
@@ -29,8 +34,8 @@ public class VentanaJuegoController {
 	 */
 	public void initialize() {
 		cargar();
-//		moverJugador();
-		
+		moverJugador();
+//		moverJugador2();
 	}  
 	
 	/**
@@ -45,8 +50,31 @@ public class VentanaJuegoController {
 		
 	}
 	
-	public static void moverJugador() {
-		
+	public void moverJugador() {
+		avanzar = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+			if (p1.getLayoutX()==300) {
+				avanzar.stop();
+			}
+			Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).avanzarP1(5);
+			p1.setLayoutX(Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).avanzarP2(3);
+			p2.setLayoutX(Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).getPosX());
+			
+		}));
+		avanzar.setCycleCount(Timeline.INDEFINITE);
+		avanzar.play();
+	}
+	
+	public void moverJugador2() {
+		avanzar = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+//			Main.getPartida().escojerPersonajeP1(Main.getPartida().getPosP()).avanzarP1(5);
+//			p1.setLayoutX(Main.getPartida().escojerPersonajeP1(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).avanzarP2(3);
+			p1.setLayoutX(Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).getPosX());
+			
+		}));
+		avanzar.setCycleCount(Timeline.INDEFINITE);
+		avanzar.play();
 	}
 	
 	public void keyPressed(KeyEvent e) {
