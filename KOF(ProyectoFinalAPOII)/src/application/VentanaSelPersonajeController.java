@@ -13,11 +13,12 @@ public class VentanaSelPersonajeController implements IConstantes{
 	@FXML Button Iori;
 	@FXML Button Terry;
 	@FXML Button Ryo;
+	private int i;
 
 public void initialize() {
-	
+	i=0;
 	cargarImagenes();
-	Cargar();
+	escojerPersonaje();
 }
 
 public void cargarImagenes() {
@@ -45,13 +46,41 @@ public void cargarImagenes() {
 	Iori.setGraphic(imagen1);
 	Ryo.setGraphic(imagen2);
 	Terry.setGraphic(imagen3);
+
 }
 	
-	public void Cargar() {
+	public void escojerPersonaje() {
+		
+		if (i<1) {
 		Iori.setOnMouseClicked(e ->{
 			Main.getPartida().posicionPersonaje(0);
-			Main.pantallaMapas();
+			i++;
+			escojerPersonaje();
 		});
+		Ryo.setOnMouseClicked(e ->{
+			Main.getPartida().posicionPersonaje(1);
+			i++;
+			escojerPersonaje();
+		});
+		Terry.setOnMouseClicked(e ->{
+			Main.getPartida().posicionPersonaje(2);
+			i++;
+			escojerPersonaje();
+		});
+		}else {
+			Iori.setOnMouseClicked(e ->{
+				Main.getPartida().posicionPersonaje(0);
+				Main.pantallaMapas();
+			});
+			Ryo.setOnMouseClicked(e ->{
+				Main.getPartida().posicionPersonaje(1);
+				Main.pantallaMapas();
+			});
+			Terry.setOnMouseClicked(e ->{
+				Main.getPartida().posicionPersonaje(2);
+				Main.pantallaMapas();
+			});
+		}
 	}
 
 }

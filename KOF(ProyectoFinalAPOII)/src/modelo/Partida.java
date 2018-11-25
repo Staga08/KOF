@@ -243,10 +243,16 @@ public class Partida {
 		return pos;
 	}
 	
-	public Personaje escojerPersonaje(int index) {
+	public Personaje escojerPersonajeP1(int index) {
 		jugador1 = new Jugador("se", 0);
 		jugador1.cargarPersonajesP1();
 		return jugador1.get(index);	
+	}
+	
+	public Personaje escojerPersonajeP2(int index) {
+		jugador2 = new Jugador("se", 0);
+		jugador2.cargarPersonajesP2();
+		return jugador2.get(index);	
 	}
 	
 	public void pegarse() {
