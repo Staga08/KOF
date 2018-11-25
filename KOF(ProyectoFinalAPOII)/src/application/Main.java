@@ -17,11 +17,7 @@ import modelo.Partida;
 public class Main extends Application {
 	private static Stage primaryStage;
 	private static Partida partidilla = new Partida();
-		
-	public  Main() {
-		
-	}
-	
+			
 	@Override
 	public void start(Stage primaryStage) {
 		try {

@@ -24,8 +24,8 @@ public class VentanaJuegoController {
 	@FXML private ImageView p1;
 	@FXML private ImageView p2;
 	@FXML private ImageView back;
-	@FXML private Timeline avanzar;
-	@FXML private Timeline pelear;
+	@FXML private Timeline animation1;
+	@FXML private Timeline animation2;
 	
 	
 	/**
@@ -35,7 +35,7 @@ public class VentanaJuegoController {
 	 */
 	public void initialize() {
 		cargar();
-		moverJugador();
+		animacion1();
 //		
 	}  
 	
@@ -52,14 +52,13 @@ public class VentanaJuegoController {
 		
 	}
 	
-	public void moverJugador() {
-		avanzar = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+	public void animacion1() {
+		animation1 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
 			if (p1.getLayoutX()==300) {
-				avanzar.stop();
+				animation1.stop();
 				Main.getPartida().get(Main.getPartida().getPosP()).atacar();
 				p1.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
-//				p1.setFitHeight(400);
-//				p1.setFitHeight(200);
+				animacion2();
 			}
 			Main.getPartida().get(Main.getPartida().getPosP()).avanzarP1(5);
 			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
@@ -67,16 +66,20 @@ public class VentanaJuegoController {
 			p2.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP2()).getPosX());
 			
 		}));
-		avanzar.setCycleCount(Timeline.INDEFINITE);
-		avanzar.play();
+		animation1.setCycleCount(Timeline.INDEFINITE);
+		animation1.play();
 	}
 	
-	public void pegarse() {
-		pelear = new Timeline(new KeyFrame(Duration.millis(30), f-> {
-			
+	public void animacion2() {
+		animation2 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+			Main.getPartida().get(Main.getPartida().getPosP()).dejarDeatacar();
+			Main.getPartida().get(Main.getPartida().getPosP()).avanzarP1(3);
+			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().get(Main.getPartida().getPosP2()).retrosederP2(4);;
+			p2.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP2()).getPosX());
 		}));
-		
-//		avanzar.play();
+		animation2.setCycleCount(Timeline.INDEFINITE);
+		animation2.play();
 	}
 	
 	public void keyPressed(KeyEvent e) {
