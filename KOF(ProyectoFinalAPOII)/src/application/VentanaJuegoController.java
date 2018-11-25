@@ -18,13 +18,23 @@ public class VentanaJuegoController {
 	@FXML private ImageView p2;
 	@FXML private ImageView back;
 	@FXML private Timeline avanzar;
-
+	
+	/**
+	 * initialize(): void
+	 * Este metodo permite que las instrucciones dentro de le se ejecuten en el momento 
+	 * en que la nueva ventana es iniciañizada.
+	 */
 	public void initialize() {
 		cargar();
 		
 		
 	}  
 	
+	/**
+	 * cargar(): void
+	 * Este metodo permite cargar las imagenes de las selecciones que los jugadores hicieron anteriormente
+	 * para mostrarlas en la ventana principal de juego
+	 */
 	public void cargar() {
 		back.setImage(new Image(new File(Main.getPartida().getBack()).toURI().toString()));
 		p1.setImage(new Image(new File(Main.getPartida().escojerPersonajeP1(Main.getPartida().getPosP()).getSkin()).toURI().toString()));

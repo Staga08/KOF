@@ -19,11 +19,21 @@ public class VentanaSelPersonajeController implements IConstantes{
 		this.i=0;
 	}
 	
+	/**
+	 * initialize(): void
+	 * Este metodo permite que las instrucciones dentro de el, se ejecuten al momento en que
+	 * se inicializa la nueva ventana.
+	 */
 	public void initialize() {
 		cargarImagenes();
 		escojerPersonaje();
 	}
-
+	
+	/**
+	 * cargarImagenes(): void
+	 * Este metodo permite cargar las imagenes de los personajes seleccionables, a modo de iconos,
+	 * para que asi el usuario puede decidir mejor que personaje quiere escoger.
+	 */
 	public void cargarImagenes() {
 		File iori=new File(IORI_ICONO);
 		File ryo= new File(RYO_ICONO);
@@ -51,6 +61,11 @@ public class VentanaSelPersonajeController implements IConstantes{
 		Terry.setGraphic(imagen3);
 	}
 	
+	/**
+	 * escogerPersonaje():void. </b>
+	 * Este metodo le permite al usuario escoger su personaje y que esta eleccion se guarde,
+	 * para asi ser mostrada mas adelante como el personaje jugable que el jugador escogio.
+	 */
 	public void escojerPersonaje() {
 
 			
@@ -68,6 +83,11 @@ public class VentanaSelPersonajeController implements IConstantes{
 		});
 	}
 	
+	/**
+	 * escogerPersonaje2():void. </b>
+	 * Este metodo le permite al usuario#2 escoger su personaje y que esta eleccion se guarde,
+	 * para asi ser mostrada mas adelante como el personaje jugable que el jugador escogio.
+	 */
 	public void escojerPersonaje2() {
 	
 		Iori.setOnMouseClicked(e ->{

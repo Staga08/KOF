@@ -299,7 +299,15 @@ public class Partida {
 	public void setBack(String back) {
 		this.back = back;
 	}
-
+	
+	/**
+	 * listarEscenarios(): String
+	 * Este metodo permite retornar una cadena de strings que continene las rutas
+	 * de los escenarios, separadas por un caracter("-").
+	 * <b>pre:</b> debe tener la ruta de un archivo plano existente.
+	 * @return la cadena de String con las rutas de los escenarios.
+	 * @throws IOException
+	 */
 	public String listarEscenarios() throws IOException {
 		String listado="";
 		String cadena;
@@ -311,7 +319,15 @@ public class Partida {
 	      b.close();
 	return listado;
 	}
-
+	/**
+	 * darEscenario(int): String.
+	 * Este metodo permite retornar el escenario deseado(los escenarios se encuentran 
+	 * almacenados en un arreglo tipo String).
+	 * <b>pre:</b> el metodo listarEscenarios, debe tener la ruta de un archivo plano existente.
+	 * @param index de tipo int - la posicion del escenario que desea recuperar.
+	 * @return La ruta del escenario deseado.
+	 * @throws IOException
+	 */
 	public String darEscenario(int index) throws IOException {
 		
 			String result= listarEscenarios();

@@ -31,14 +31,22 @@ public class VentanaSelMapaController {
 	private ImageView imagensel;
 	
 	String result;
-	
+	/**
+	 * initialize(): void
+	 * Este metodo permite que las instrucciones dentro de le se ejecuten en el momento 
+	 * en que la nueva ventana es iniciañizada.
+	 */
 	public void initialize() {
 		mapas();
 		actions();
 		
 	}
 
-	
+	/**
+	 * mapas(): void
+	 * Este metodo permite agregar las elecciones disponibles al ChoiceBox de la ventana,
+	 * para que asi este puede mostrar los escenarios disponibles.
+	 */
 	public void mapas() {
 		List<String> lista=new ArrayList<String>();
 		lista.add("Casa en llamas");
@@ -52,7 +60,11 @@ public class VentanaSelMapaController {
 		mapa.setItems(tip);
 	}
 
-
+	/**
+	 * action(): void
+	 * Este metodo permite escuchar los eventos que generan los botones, 
+	 * y por tanto desplegar ciertas opciones, dependiendo del boton presionado.
+	 */
 	public void actions() {
 		siguiente.setOnAction(e->{
 			try {
