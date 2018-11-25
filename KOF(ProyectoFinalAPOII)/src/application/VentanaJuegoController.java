@@ -25,6 +25,7 @@ public class VentanaJuegoController {
 	@FXML private ImageView p2;
 	@FXML private ImageView back;
 	@FXML private Timeline avanzar;
+	@FXML private Timeline pelear;
 	
 	
 	/**
@@ -35,7 +36,7 @@ public class VentanaJuegoController {
 	public void initialize() {
 		cargar();
 		moverJugador();
-//		moverJugador2();
+//		
 	}  
 	
 	/**
@@ -54,6 +55,10 @@ public class VentanaJuegoController {
 		avanzar = new Timeline(new KeyFrame(Duration.millis(30), f-> {
 			if (p1.getLayoutX()==300) {
 				avanzar.stop();
+				Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).atacar();
+				p1.setImage(new Image(new File(Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
+//				p1.setFitHeight(400);
+//				p1.setFitHeight(200);
 			}
 			Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).avanzarP1(5);
 			p1.setLayoutX(Main.getPartida().getJugador1().get(Main.getPartida().getPosP()).getPosX());
@@ -65,16 +70,12 @@ public class VentanaJuegoController {
 		avanzar.play();
 	}
 	
-	public void moverJugador2() {
-		avanzar = new Timeline(new KeyFrame(Duration.millis(30), f-> {
-//			Main.getPartida().escojerPersonajeP1(Main.getPartida().getPosP()).avanzarP1(5);
-//			p1.setLayoutX(Main.getPartida().escojerPersonajeP1(Main.getPartida().getPosP()).getPosX());
-			Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).avanzarP2(3);
-			p1.setLayoutX(Main.getPartida().getJugador2().get(Main.getPartida().getPosP2()).getPosX());
+	public void pegarse() {
+		pelear = new Timeline(new KeyFrame(Duration.millis(30), f-> {
 			
 		}));
-		avanzar.setCycleCount(Timeline.INDEFINITE);
-		avanzar.play();
+		
+//		avanzar.play();
 	}
 	
 	public void keyPressed(KeyEvent e) {
