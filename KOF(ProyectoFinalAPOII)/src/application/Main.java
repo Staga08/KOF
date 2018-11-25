@@ -16,7 +16,7 @@ import modelo.Partida;
 public class Main extends Application {
 	private static Stage primaryStage;
 	private static Partida partidilla = new Partida();
-	Pane root;
+	
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -27,6 +27,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -45,8 +46,9 @@ public class Main extends Application {
 			
 			Scene scene2=new Scene(root2);
 			stage2.setScene(scene2);
-			stage2.showAndWait();
-			primaryStage.close();
+			stage2.show();
+			
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -65,8 +67,8 @@ public class Main extends Application {
 			
 			Scene scene2=new Scene(root2);
 			stage2.setScene(scene2);
-			stage2.showAndWait();
-			primaryStage.close();
+			stage2.show();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -85,8 +87,7 @@ public class Main extends Application {
 			
 			Scene scene2=new Scene(root2);
 			stage2.setScene(scene2);
-			stage2.showAndWait();
-			primaryStage.close();
+			stage2.show();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -106,8 +107,9 @@ public class Main extends Application {
 			
 			Scene scene2=new Scene(root2);
 			stage2.setScene(scene2);
-			stage2.showAndWait();
-			primaryStage.close();
+			stage2.show();
+		
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
