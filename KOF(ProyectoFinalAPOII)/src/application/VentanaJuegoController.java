@@ -43,28 +43,32 @@ public class VentanaJuegoController {
 	}
 
 	
-	private void moveOnkeyPressed() {
-		p1.setOnKeyPressed(new EventHandler<KeyEvent>(){
-			@Override
-			public void handle(KeyEvent e) {
-				//System.out.println(Main.getPosy());
-				switch(e.getCode()) {
-				 case UP:   System.out.println("Arriba");
-				 	break;
-		          case RIGHT: System.out.println("Derecha"); 
-		          	break;
-		          case DOWN:  System.out.println("Abajo");
-		          	break;
-		          case LEFT: System.out.println("Izquierda");
-		          	break;
-				}
-			}
-		});
+	public void keyPressed(KeyEvent e) {
 		
+		
+		if(e.getCode() == KeyCode.RIGHT) {
+			System.out.println("RIGTH");
+			System.out.println("Funciona");
+		}
+		if(e.getCode() == KeyCode.LEFT) {
+			System.out.println("LEFT");
+			System.out.println("Funciona");
+		}
+		if(e.getCode() == KeyCode.DOWN) {
+			System.out.println("DOWN");
+			System.out.println("Funciona");
+		}
+		if(e.getCode() == KeyCode.UP) {
+			System.out.println("UP");
+			System.out.println("Funciona");
+		}
 		
 	}
-
-
-
+	
 
 }
+
+
+
+
+

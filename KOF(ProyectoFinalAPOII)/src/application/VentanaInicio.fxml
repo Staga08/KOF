@@ -16,12 +16,17 @@
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="207.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="32.0" fitWidth="200.0" layoutX="215.0" layoutY="300.0">
+      <ImageView fitHeight="98.0" fitWidth="200.0" layoutX="215.0" layoutY="234.0">
          <image>
             <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="54.0" fitWidth="187.0" layoutX="415.0" layoutY="284.0">
+      <ImageView fitHeight="80.0" fitWidth="187.0" layoutX="415.0" layoutY="258.0">
+         <image>
+            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="200.0" layoutX="5.0" layoutY="252.0">
          <image>
             <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
          </image>
@@ -54,10 +59,5 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <ImageView fitHeight="54.0" fitWidth="200.0" layoutX="5.0" layoutY="278.0">
-         <image>
-            <Image url="@../../imagenes/pantalla%20inicio/fuego.gif" />
-         </image>
-      </ImageView>
    </children>
 </Pane>
