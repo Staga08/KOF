@@ -329,5 +329,14 @@ class PartidaTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	void testOrdenarPorInserccion() {
+		escenario6();
+		p.inOrden(p.getJugadores());
+		p.ordenarPorInsercion();
+		assertEquals("Brayan", p.getMejoresPuntajes().get(0).getNickName());
+		assertEquals("Walter", p.getMejoresPuntajes().get(p.getMejoresPuntajes().size()-1).getNickName());
+	}
 
 }
