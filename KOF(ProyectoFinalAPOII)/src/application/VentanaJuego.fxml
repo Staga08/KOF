@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VentanaJuegoController">
    <center>
@@ -11,6 +15,18 @@
             <ImageView fx:id="back" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="p2" fitHeight="77.0" fitWidth="81.0" layoutX="495.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="p1" fitHeight="90.0" fitWidth="96.0" layoutX="14.0" layoutY="223.0" onKeyReleased="#keyPressed" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="gameOver" alignment="CENTER" contentDisplay="CENTER" layoutX="287.0" layoutY="90.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Algerian" size="46.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.5619047619047619" startY="0.38095238095238093">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
          </children>
       </Pane>
    </center>
