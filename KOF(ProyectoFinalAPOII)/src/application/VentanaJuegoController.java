@@ -26,6 +26,8 @@ public class VentanaJuegoController {
 	@FXML private ImageView back;
 	@FXML private Timeline animation1;
 	@FXML private Timeline animation2;
+	@FXML private Timeline animation3;
+	@FXML private Timeline animation4;
 	
 	
 	/**
@@ -35,8 +37,7 @@ public class VentanaJuegoController {
 	 */
 	public void initialize() {
 		cargar();
-		animacion1();
-//		
+		animacion();
 	}  
 	
 	/**
@@ -52,12 +53,12 @@ public class VentanaJuegoController {
 		
 	}
 	
-	public void animacion1() {
+	public void animacion() {
 		animation1 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
 			if (p1.getLayoutX()==300) {
 				animation1.stop();
 				Main.getPartida().get(Main.getPartida().getPosP()).atacar();
-				p1.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
+				refreshP1();
 				animacion2();
 			}
 			Main.getPartida().get(Main.getPartida().getPosP()).avanzarP1(5);
@@ -72,7 +73,10 @@ public class VentanaJuegoController {
 	
 	public void animacion2() {
 		animation2 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
-			Main.getPartida().get(Main.getPartida().getPosP()).dejarDeatacar();
+			if (p2.getLayoutX()>700) {
+				animation2.stop();
+				animacion3();
+			}
 			Main.getPartida().get(Main.getPartida().getPosP()).avanzarP1(3);
 			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
 			Main.getPartida().get(Main.getPartida().getPosP2()).retrosederP2(4);;
@@ -81,6 +85,43 @@ public class VentanaJuegoController {
 		animation2.setCycleCount(Timeline.INDEFINITE);
 		animation2.play();
 	}
+	
+	public void animacion3() {
+		Main.getPartida().get(Main.getPartida().getPosP()).dejarDeatacar();
+		refreshP1();
+		animation3 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+			if (p1.getLayoutX()<350) {
+				animation3.stop();
+				animacion4();
+			}
+			Main.getPartida().get(Main.getPartida().getPosP()).retrocederP1(3);
+			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().get(Main.getPartida().getPosP2()).avanzarP2(4);
+			p2.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP2()).getPosX());
+		}));
+		animation3.setCycleCount(Timeline.INDEFINITE);
+		animation3.play();
+	}
+	
+	public void animacion4() {
+		Main.getPartida().get(Main.getPartida().getPosP2()).atacar();
+		refreshP2();
+		animacion5();
+	}
+	
+	public void animacion5() {
+		Main.getPartida().get(Main.getPartida().getPosP()).atacar();
+		refreshP1();
+	}
+	
+	public void refreshP1() {
+		p1.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP()).getSkin()).toURI().toString()));
+	}
+	
+	public void refreshP2() {
+		p2.setImage(new Image(new File(Main.getPartida().get(Main.getPartida().getPosP2()).getSkin()).toURI().toString()));
+	}
+	
 	
 	public void keyPressed(KeyEvent e) {
 		
