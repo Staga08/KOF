@@ -45,7 +45,7 @@ public class VentanaInicioController {
 	public void action() {
 		
 		jugar.setOnAction(f->{
-			pedirNickname();
+
 			Main.pantallaPersonaje();
 		});
 	

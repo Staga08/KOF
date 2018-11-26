@@ -377,6 +377,10 @@ public class Partida {
 			String[] epa=result.split("-");
 			return epa[index];
 	}
+
+	public ArrayList<Jugador> getMejoresPuntajes() {
+		return mejoresPuntajes;
+	}
 	
 
 

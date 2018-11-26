@@ -1,10 +1,17 @@
 package application;
 	
 import java.io.File;
+import java.util.Optional;
 
+import excepciones.JugadorNoEncontradoException;
+import excepciones.JugadorYaRegistradoException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
@@ -28,9 +35,30 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		TextInputDialog dialog = new TextInputDialog("walter");
+		dialog.setTitle("Usuario");
+		dialog.setHeaderText(null);
+		dialog.setContentText("Please enter your nickname:");
+		Optional<String> result = dialog.showAndWait();
+		result.ifPresent(name -> {
+			
+				try {
+					Main.getPartida().agregar(result.get());
+				} catch (JugadorNoEncontradoException | JugadorYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		});
+
+	
+	
+	
 	}
 	
 	public static void pantallaPersonaje() {
