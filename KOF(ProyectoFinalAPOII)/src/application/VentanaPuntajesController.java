@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
+import excepciones.PuntajeNoExisteException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -77,6 +78,36 @@ public class VentanaPuntajesController {
 			});
 			
 		});
+		//:(
+		puntaje.setOnAction(e->{
+			TextInputDialog dialog = new TextInputDialog("walter");
+			dialog.setTitle("Usuario");
+			dialog.setHeaderText(null);
+			dialog.setContentText("Que nombre estas buscando?");
+			Optional<String> result = dialog.showAndWait();
+			result.ifPresent(name -> {
+				
+					try {
+						Jugador a=Main.getPartida().buscarPuntaje(Main.getPartida().getJugadores(), Integer.parseInt(result.get()));
+						System.out.println(a.getNickName());
+						Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setTitle("King of Fighters");
+						alert.setHeaderText(null);
+						alert.setContentText("El jugador "+ a.getNickName()+ " se ha encontrado, este tiene una puntuacion de "+a.getPuntaje());
+						Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+						ButtonType butt = new ButtonType("aceptar");
+						alert.getButtonTypes().setAll(butt);
+						Optional<ButtonType>as=alert.showAndWait();
+					
+					} catch (NumberFormatException | PuntajeNoExisteException f) {
+						// TODO Auto-generated catch block
+						f.printStackTrace();
+					}
+				
+			});
+		});
+	
+	
 	}
 
 }
