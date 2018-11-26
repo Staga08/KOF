@@ -4,11 +4,13 @@ import java.io.File;
 import java.security.SecureRandom;
 import java.sql.Time;
 import java.util.Currency;
+import java.util.Optional;
 
 import javax.management.timer.Timer;
 
 import com.sun.javafx.geom.Point2D;
 import com.sun.javafx.scene.paint.GradientUtils.Point;
+import com.sun.prism.paint.Color;
 
 import excepciones.JugadorNoEncontradoException;
 import javafx.animation.KeyFrame;
@@ -16,22 +18,28 @@ import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import modelo.IConstantes;
 
 public class VentanaJuegoController {
- 
+	@FXML private BorderPane bp;
 	@FXML private ImageView p1;
 	@FXML private ImageView p2;
 	@FXML private ImageView back;
@@ -41,6 +49,7 @@ public class VentanaJuegoController {
 	@FXML private Timeline animation4;
 	@FXML private Timeline animation5;
 	@FXML private Timeline animation6;
+	@FXML private Timeline usoCanvas;
 	@FXML private Label gameOver;
 	
 	/**
@@ -51,6 +60,7 @@ public class VentanaJuegoController {
 	public void initialize() {
 		cargar();
 		animacion();
+		
 	}  
 	
 	/**
@@ -179,8 +189,14 @@ public class VentanaJuegoController {
 		try {
 			Main.getPartida().buscarJugador(Main.getPartida().getReferencia()).setPuntaje(puntaje);
 		} catch (JugadorNoEncontradoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("King of Fighters");
+			alert.setHeaderText(null);
+			alert.setContentText(e.getMessage());
+			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			ButtonType butt = new ButtonType("aceptar");
+			alert.getButtonTypes().setAll(butt);
+			Optional<ButtonType>as=alert.showAndWait();
 		}
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("GAME OVER");
@@ -190,7 +206,14 @@ public class VentanaJuegoController {
 					buscarJugador(Main.getPartida().getReferencia()).getPuntaje()));
 		} catch (JugadorNoEncontradoException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Alert alert2 = new Alert(AlertType.INFORMATION);
+			alert2.setTitle("King of Fighters");
+			alert2.setHeaderText(null);
+			alert2.setContentText(e.getMessage());
+			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			ButtonType butt = new ButtonType("aceptar");
+			alert.getButtonTypes().setAll(butt);
+			Optional<ButtonType>as=alert.showAndWait();
 		}
 		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
 		stage.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
@@ -229,6 +252,8 @@ public class VentanaJuegoController {
 		
 	}
 	
+
+
 
 }
 

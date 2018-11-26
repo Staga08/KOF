@@ -7,7 +7,10 @@ import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
@@ -35,25 +38,42 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
+//			Canvas canvas= new Canvas(800,600);
+//			Group eje= new Group(canvas);
+//			
+//			GraphicsContext gc= canvas.getGraphicsContext2D();
+//			gc.fillText("Ohio Gosaimasu", 20, 40);
+//			
+//			primaryStage.setTitle("King of Fighters");
+//			primaryStage.setScene(new Scene(eje));
+			
+			
+			
 			
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		TextInputDialog dialog = new TextInputDialog("walter");
+		TextInputDialog dialog = new TextInputDialog("");
 		dialog.setTitle("Usuario");
 		dialog.setHeaderText(null);
-		dialog.setContentText("Please enter your nickname:");
+		dialog.setContentText("Por favor inserta tu Nickname:");
 		Optional<String> result = dialog.showAndWait();
 		result.ifPresent(name -> {
 			
-				try {
-					Main.getPartida().agregar(result.get());
-					Main.getPartida().guardar();
+			try {
+				Main.getPartida().agregar(result.get());
+				Main.getPartida().guardar();
 					Main.getPartida().setReferencia(result.get());
-				} catch (JugadorNoEncontradoException | JugadorYaRegistradoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+			}catch (JugadorNoEncontradoException | JugadorYaRegistradoException f) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("King of Fighters");
+				alert.setHeaderText(null);
+				alert.setContentText(f.getMessage());
+				Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+				ButtonType butt = new ButtonType("aceptar");
+				alert.getButtonTypes().setAll(butt);
+				Optional<ButtonType>as=alert.showAndWait();
 				}
 			
 		});
