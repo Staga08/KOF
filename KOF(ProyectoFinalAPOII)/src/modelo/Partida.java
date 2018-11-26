@@ -43,6 +43,57 @@ public class Partida {
 		this. mejoresPuntajes = new ArrayList<Jugador>();
 	}
 	
+	/**
+	 * Este metodo permite obtener la posicion del personaje del lado izquierdo
+	 */
+	public int getPosP() {
+		return posP;
+	}
+	
+	/**
+	 * Este metodo permite establecer la posicion del personaje del lado izquierdo
+	 */
+	public void setPosP(int posP) {
+		this.posP = posP;
+	}
+	
+	/**
+	 * Este metodo permite obtener la posicion del personaje del lado derecho
+	 */
+	public int getPosP2() {
+		return posP2;
+	}
+	
+	/**
+	 * Este metodo permite saber cual personaje escojio el jugador del lado derecho
+	 */
+	public void setPosP2(int posP2) {
+		this.posP2 = posP2;
+	}
+
+	/**
+	 * Este metodo permite obtener la ruta de la imagen del background
+	 */
+	public String getBack() {
+		return back;
+	}
+	
+	/**
+	 * Este metodo permite establecer la ruta de la imagen del background
+	 */
+	public void setBack(String back) {
+		this.back = back;
+	}
+	
+	public ArrayList<Jugador> getMejoresPuntajes() {
+		return mejoresPuntajes;
+	}
+	
+	
+	public void setMejoresPuntajes(ArrayList<Jugador> mejoresPuntajes) {
+		this.mejoresPuntajes = mejoresPuntajes;
+	}
+	
 	public Jugador getJugadores() {
 		return jugadores;
 	}
@@ -312,40 +363,7 @@ public class Partida {
 		return gameOver;
 	}
 	
-	/**
-	 * Este metodo permite saber cual personaje escojio el jugador del lado izquierdo
-	 */
-	public int getPosP() {
-		return posP;
-	}
-	/**
-	 * Este metodo permite saber cual personaje escojio el jugador del lado izquierdo
-	 */
 
-	public void setPosP(int posP) {
-		this.posP = posP;
-	}
-	
-	/**
-	 * Este metodo permite saber cual personaje escojio el jugador del lado derecho
-	 */
-	public int getPosP2() {
-		return posP2;
-	}
-	/**
-	 * Este metodo permite saber cual personaje escojio el jugador del lado derecho
-	 */
-	public void setPosP2(int posP2) {
-		this.posP2 = posP2;
-	}
-
-	public String getBack() {
-		return back;
-	}
-
-	public void setBack(String back) {
-		this.back = back;
-	}
 	
 	/**
 	 * listarEscenarios(): String
@@ -382,9 +400,6 @@ public class Partida {
 			return epa[index];
 	}
 
-	public ArrayList<Jugador> getMejoresPuntajes() {
-		return mejoresPuntajes;
-	}
 	
 	public void guardar() {
 		FileOutputStream fS = null;
@@ -436,9 +451,7 @@ public class Partida {
 		}
 	}
 
-	public void setMejoresPuntajes(ArrayList<Jugador> mejoresPuntajes) {
-		this.mejoresPuntajes = mejoresPuntajes;
-	}
+	
 
 
 }

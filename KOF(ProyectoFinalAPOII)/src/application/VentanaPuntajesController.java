@@ -72,8 +72,14 @@ public class VentanaPuntajesController {
 						Optional<ButtonType>as=alert.showAndWait();
 					
 					} catch (JugadorNoEncontradoException f) {
-						// TODO Auto-generated catch block
-						f.printStackTrace();
+						Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setTitle("King of Fighters");
+						alert.setHeaderText(null);
+						alert.setContentText(f.getMessage());
+						Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+						ButtonType butt = new ButtonType("aceptar");
+						alert.getButtonTypes().setAll(butt);
+						Optional<ButtonType>as=alert.showAndWait();
 					}
 				
 			});
@@ -84,7 +90,7 @@ public class VentanaPuntajesController {
 			TextInputDialog dialog = new TextInputDialog("walter");
 			dialog.setTitle("Usuario");
 			dialog.setHeaderText(null);
-			dialog.setContentText("Que nombre estas buscando?");
+			dialog.setContentText("Que puntaje estas buscando?");
 			Optional<String> result = dialog.showAndWait();
 			result.ifPresent(name -> {
 				
@@ -94,15 +100,21 @@ public class VentanaPuntajesController {
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("King of Fighters");
 						alert.setHeaderText(null);
-						alert.setContentText("El jugador "+ a.getNickName()+ " se ha encontrado, este tiene una puntuacion de "+a.getPuntaje());
+						alert.setContentText("El puntaje: "+a.getPuntaje()+" se ha encontrado,y esta asociado al jugador: "+a.getNickName());
 						Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
 						ButtonType butt = new ButtonType("aceptar");
 						alert.getButtonTypes().setAll(butt);
 						Optional<ButtonType>as=alert.showAndWait();
 					
 					} catch (NumberFormatException | PuntajeNoExisteException f) {
-						// TODO Auto-generated catch block
-						f.printStackTrace();
+						Alert alert = new Alert(AlertType.INFORMATION);
+						alert.setTitle("King of Fighters");
+						alert.setHeaderText(null);
+						alert.setContentText(f.getMessage());
+						Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+						ButtonType butt = new ButtonType("aceptar");
+						alert.getButtonTypes().setAll(butt);
+						Optional<ButtonType>as=alert.showAndWait();
 					}
 				
 			});
