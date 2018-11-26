@@ -86,6 +86,14 @@ public class Personaje {
 	public void setSiguiente(Personaje siguiente) {
 		this.siguiente = siguiente;
 	}
+	
+	public boolean isAttack() {
+		return attack;
+	}
+	public void setAttack(boolean attack) {
+		this.attack = attack;
+	}
+	
 	/** 
 	 * avanzar(int velocidad): este metodo permite cambiar la posicion del personaje, manipulado por el jugador 2, simulando el movimiento del mismo
 	 * @param velocidad: int con la velocidad a la que se desplazara el personaje.
@@ -118,13 +126,14 @@ public class Personaje {
 	public void retrocederP1(int velocidad) {
 		setPosX(posX-=velocidad);
 	}
-	public boolean isAttack() {
-		return attack;
-	}
-	public void setAttack(boolean attack) {
-		this.attack = attack;
-	}
 	
+	
+	/** 
+	 * atacar():void 
+	 * Este metodo permite que el personaje ataque, haciendo que la imagen se cambie 
+	 * por la de una imagen en una postura de ataque
+	 *
+	 * */
 	public void atacar() {
 		if (isAttack()==false) {
 			if (skin.equals(IConstantes.IORI_MOV_DER)) {
@@ -149,6 +158,12 @@ public class Personaje {
 		}
 	}
 	
+	/** 
+	 * dejarDeatacar():void 
+	 * Este metodo permite que el personaje deje de atacar, haciendo que la imagen se cambie 
+	 * por la de una imagen en otra postura
+	 *
+	 * */
 	public void dejarDeatacar() {
 		if (skin.equals(IConstantes.IORI_ATAQ_DER)) {
 			setSkin(IConstantes.IORI_MOV_DER);
@@ -170,6 +185,7 @@ public class Personaje {
 		}
 		setAttack(false);
 	}
+	
 	
 	public void muerte() {
 		if (vida==0) {

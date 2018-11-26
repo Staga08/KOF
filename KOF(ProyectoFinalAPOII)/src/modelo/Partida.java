@@ -44,30 +44,30 @@ public class Partida {
 	}
 	
 	/**
-	 * Este metodo permite obtener la posicion del personaje del lado izquierdo
+	 * Este metodo permite saber cual personaje escogio el jugador del lado izquierdo
 	 */
 	public int getPosP() {
 		return posP;
 	}
 	
 	/**
-	 * Este metodo permite establecer la posicion del personaje del lado izquierdo
+	 * Este metodo permite setear la pos del personaje que escogio el jugador del lado izquierdo
 	 */
 	public void setPosP(int posP) {
 		this.posP = posP;
 	}
 	
 	/**
-	 * Este metodo permite obtener la posicion del personaje del lado derecho
+	 * Este metodo permite saber cual personaje escogio el jugador del lado derecho
 	 */
 	public int getPosP2() {
 		return posP2;
 	}
 	
 	/**
-	 * Este metodo permite saber cual personaje escojio el jugador del lado derecho
+	 * Este metodo permite setear la pos del personaje que escogio el jugador del lado derecho
 	 */
-	public void setPosP2(int posP2) {
+	 public void setPosP2(int posP2) {
 		this.posP2 = posP2;
 	}
 
@@ -85,11 +85,16 @@ public class Partida {
 		this.back = back;
 	}
 	
+	/**
+	 * Este metodo permite obtener el arreglo de jugadores
+	 */
 	public ArrayList<Jugador> getMejoresPuntajes() {
 		return mejoresPuntajes;
 	}
 	
-	
+	/**
+	 * Este metodo permite obtener el arreglo de jugadores
+	 */
 	public void setMejoresPuntajes(ArrayList<Jugador> mejoresPuntajes) {
 		this.mejoresPuntajes = mejoresPuntajes;
 	}
@@ -177,7 +182,6 @@ public class Partida {
 	
 	/**
 	 * Este m�todo permite buscar un jugador, con el puntaje como criterio<br>
-	 * Este m�todo permite buscar un jugador, con el puntaje como criterio<br>
 	 * <b>pre:</b> actual !=null
 	 * @param actual de tipo Jugador - el jugador actual
 	 * @param puntaje de tipo int - el puntaje del jugador que se desea buscar
@@ -203,6 +207,11 @@ public class Partida {
 		}
 	} 
 	
+	/**
+	 * Este m�todo permite ordenar un arbol con el critero de inorden<br>
+	 * <b>pre:</b> nodo !=null
+	 * @param nodo de tipo Jugador - la raiz del arbol
+	 */
 	public void inOrden(Jugador nodo) {
 		
 		if(nodo.getDer() != null)
