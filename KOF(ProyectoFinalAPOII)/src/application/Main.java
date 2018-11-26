@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Partida;
-//BLABKA
+
 
 public class Main extends Application {
 	private static Stage primaryStage;
@@ -22,7 +22,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Pane root = (Pane)FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
-			primaryStage.getIcons().add(new Image(new File("imagenes/logo.png").toURI().toString()));
+			primaryStage.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
 			 Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
@@ -40,6 +40,7 @@ public class Main extends Application {
 			Pane root2 = (Pane)loader.load();
 			
 			Stage stage2=new Stage();
+			stage2.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
 			stage2.setTitle("King of Fighters");
 			stage2.initModality(Modality.WINDOW_MODAL);
 			stage2.initOwner(primaryStage);
@@ -61,6 +62,7 @@ public class Main extends Application {
 			Pane root2 = (Pane)loader.load();
 			
 			Stage stage2=new Stage();
+			stage2.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
 			stage2.setTitle("King of Fighters");
 			stage2.initModality(Modality.WINDOW_MODAL);
 			stage2.initOwner(primaryStage);
@@ -81,6 +83,7 @@ public class Main extends Application {
 			BorderPane root2 = (BorderPane)loader.load();
 			
 			Stage stage2=new Stage();
+			stage2.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
 			stage2.setTitle("King of Fighters");
 			stage2.initModality(Modality.WINDOW_MODAL);
 			stage2.initOwner(primaryStage);
@@ -118,6 +121,7 @@ public class Main extends Application {
 			Pane root2 = (Pane)loader.load();
 			
 			Stage stage2=new Stage();
+			stage2.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
 			stage2.setTitle("King of Fighters");
 			stage2.initModality(Modality.WINDOW_MODAL);
 			stage2.initOwner(primaryStage);
