@@ -46,6 +46,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite saber cual personaje escogio el jugador del lado izquierdo
+	 * @return la posP
 	 */
 	public int getPosP() {
 		return posP;
@@ -53,6 +54,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite setear la pos del personaje que escogio el jugador del lado izquierdo
+	 * @param - la nueva posP
 	 */
 	public void setPosP(int posP) {
 		this.posP = posP;
@@ -60,6 +62,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite saber cual personaje escogio el jugador del lado derecho
+	 *@return la posP2
 	 */
 	public int getPosP2() {
 		return posP2;
@@ -67,6 +70,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite setear la pos del personaje que escogio el jugador del lado derecho
+	 *  @param- la nueva posP2
 	 */
 	 public void setPosP2(int posP2) {
 		this.posP2 = posP2;
@@ -74,6 +78,7 @@ public class Partida {
 
 	/**
 	 * Este metodo permite obtener la ruta de la imagen del background
+	 * @return el back
 	 */
 	public String getBack() {
 		return back;
@@ -81,6 +86,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite establecer la ruta de la imagen del background
+	 *  @param - el nuevo back
 	 */
 	public void setBack(String back) {
 		this.back = back;
@@ -88,6 +94,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite obtener el arreglo de jugadores
+	 * @return el array de mejoresPuntajes
 	 */
 	public ArrayList<Jugador> getMejoresPuntajes() {
 		return mejoresPuntajes;
@@ -95,6 +102,7 @@ public class Partida {
 	
 	/**
 	 * Este metodo permite obtener el arreglo de jugadores
+	 *  @param -el nuevo array de mejoresPuntajes
 	 */
 	public void setMejoresPuntajes(ArrayList<Jugador> mejoresPuntajes) {
 		this.mejoresPuntajes = mejoresPuntajes;

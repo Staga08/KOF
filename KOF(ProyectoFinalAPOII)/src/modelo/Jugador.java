@@ -53,6 +53,7 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 	 * agregarJugador(Jugador nuevo):void = agrega un  nuevo jugador al ABB segun el 
 	 * criterio de ordenamiento
 	 * @param nuevo : Jugador
+	 * @return retorna si el juegador ha sido agregado o no
 	 * */
 	public boolean agregarJugador(Jugador nuevo) {
 		if(this.compareTo(nuevo) > 0) {

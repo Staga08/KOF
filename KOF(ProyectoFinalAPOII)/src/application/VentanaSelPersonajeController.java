@@ -62,7 +62,7 @@ public class VentanaSelPersonajeController implements IConstantes{
 	}
 	
 	/**
-	 * escogerPersonaje():void. </b>
+	 * escogerPersonaje():void. 
 	 * Este metodo le permite al usuario escoger su personaje y que esta eleccion se guarde,
 	 * para asi ser mostrada mas adelante como el personaje jugable que el jugador escogio.
 	 */
@@ -82,7 +82,7 @@ public class VentanaSelPersonajeController implements IConstantes{
 	}
 	
 	/**
-	 * escogerPersonaje2():void. </b>
+	 * escogerPersonaje2():void. 
 	 * Este metodo le permite al usuario#2 escoger su personaje y que esta eleccion se guarde,
 	 * para asi ser mostrada mas adelante como el personaje jugable que el jugador escogio.
 	 */
