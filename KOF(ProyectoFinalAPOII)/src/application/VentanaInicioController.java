@@ -33,7 +33,7 @@ public class VentanaInicioController {
 	 * se inicializa la nueva ventana.
 	 */
 	public void initialize() {
-	
+	Main.getPartida().recuperarData();
 	action();
 	
 	}
@@ -61,7 +61,6 @@ public class VentanaInicioController {
 	 * Este metodo permite desplegar una ventana Pop-Up, que le pide a los usuarios sus nicknames.
 	 */
 	public void pedirNickname() {
-		//Main.darGym().recuperarData();
 		TextInputDialog dialog = new TextInputDialog("walter");
 		dialog.setTitle("Usuario");
 		dialog.setHeaderText(null);
@@ -70,6 +69,7 @@ public class VentanaInicioController {
 		result.ifPresent(name -> {
 			try {
 				Main.getPartida().agregar(dialog.getContentText());
+				Main.getPartida().guardar();
 			
 			} catch (JugadorYaRegistradoException | JugadorNoEncontradoException e) {
 				

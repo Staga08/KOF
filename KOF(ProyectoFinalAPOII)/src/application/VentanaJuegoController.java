@@ -34,8 +34,7 @@ public class VentanaJuegoController {
 	@FXML private Timeline animation3;
 	@FXML private Timeline animation4;
 	@FXML private Timeline animation5;
-	private Object FxTimer;
-	
+	@FXML private Timeline animation6;
 	
 	/**
 	 * initialize(): void
@@ -136,7 +135,7 @@ public class VentanaJuegoController {
 		animation5 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
 			if (p1.getLayoutX()<90) {
 				animation5.stop();
-				
+				animacion7();
 			}
 			Main.getPartida().get(Main.getPartida().getPosP()).retrocederP1(3);
 			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
@@ -145,6 +144,21 @@ public class VentanaJuegoController {
 		}));
 		animation5.setCycleCount(Timeline.INDEFINITE);
 		animation5.play();
+	}
+	
+	public void animacion7() {
+		animation6 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+			if (p1.getLayoutX()>200) {
+				animation6.stop();
+				
+			}
+			Main.getPartida().get(Main.getPartida().getPosP()).avanzarP1(1);
+			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().get(Main.getPartida().getPosP2()).avanzarP2(3);
+			p2.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP2()).getPosX());
+		}));
+		animation6.setCycleCount(Timeline.INDEFINITE);
+		animation6.play();
 	}
 	
 	public void refreshP1() {
