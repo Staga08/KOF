@@ -188,24 +188,27 @@ public class Partida {
 	 * @param puntaje de tipo int - el puntaje del jugador que se desea buscar
 	 * @return el jugador buscado
 	 */
-	public Jugador buscarPuntaje(Jugador actual, int puntaje) throws PuntajeNoExisteException {
-		if(actual.getPuntaje()==puntaje) {
-			return actual;
-		}else {
-			if(puntaje<actual.getPuntaje()) {
-				if(actual.getIzq()!=null) {
-					return buscarPuntaje(actual.getIzq(), puntaje);
-				}else {
-					throw new PuntajeNoExisteException(puntaje);
-				}
-			}else {
-				if(actual.getDer()!=null) {
-					return buscarPuntaje(actual.getDer(), puntaje);
-				}else {
-					throw new PuntajeNoExisteException(puntaje);
-				}
+	public Jugador buscarPuntaje(int puntaje) throws PuntajeNoExisteException {
+		inOrden(jugadores);
+		boolean si = false;
+		int inicio = 0;
+		int fin = mejoresPuntajes.size() - 1;
+		
+		while (inicio <= fin && !si) {
+			int medio = (inicio + fin) / 2;
+			if (mejoresPuntajes.get(medio).getPuntaje()==puntaje) {
+				si = true;
+				return mejoresPuntajes.get(medio);
+			} else if (mejoresPuntajes.get(medio).getPuntaje()<puntaje) {
+				inicio = medio + 1;
+			} else {
+				fin = medio - 1;
 			}
 		}
+		if (si==false) {
+			throw new PuntajeNoExisteException(puntaje);
+		}
+		return null;
 	} 
 	
 	/**

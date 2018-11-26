@@ -61,7 +61,6 @@ public class VentanaPuntajesController {
 				
 					try {
 						Jugador a=Main.getPartida().buscarJugador(result.get());
-						System.out.println(a.getNickName());
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("King of Fighters");
 						alert.setHeaderText(null);
@@ -87,7 +86,7 @@ public class VentanaPuntajesController {
 		});
 		//:(
 		puntaje.setOnAction(e->{
-			TextInputDialog dialog = new TextInputDialog("walter");
+			TextInputDialog dialog = new TextInputDialog("0");
 			dialog.setTitle("Usuario");
 			dialog.setHeaderText(null);
 			dialog.setContentText("Que puntaje estas buscando?");
@@ -95,8 +94,7 @@ public class VentanaPuntajesController {
 			result.ifPresent(name -> {
 				
 					try {
-						Jugador a=Main.getPartida().buscarPuntaje(Main.getPartida().getJugadores(), Integer.parseInt(result.get()));
-						System.out.println(a.getNickName());
+						Jugador a=Main.getPartida().buscarPuntaje(Integer.parseInt(result.get()));
 						Alert alert = new Alert(AlertType.INFORMATION);
 						alert.setTitle("King of Fighters");
 						alert.setHeaderText(null);
