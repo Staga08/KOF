@@ -205,10 +205,7 @@ public class Partida {
 				fin = medio - 1;
 			}
 		}
-		if (si==false) {
 			throw new PuntajeNoExisteException(puntaje);
-		}
-		return null;
 	} 
 	
 	/**
@@ -470,6 +467,10 @@ public class Partida {
 
 	public void setReferencia(String referencia) {
 		this.referencia = referencia;
+	}
+
+	public Personaje getPersonaje() {
+		return personaje;
 	}
 
 	
