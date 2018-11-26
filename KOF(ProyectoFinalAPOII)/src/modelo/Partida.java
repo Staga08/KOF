@@ -12,9 +12,13 @@ package modelo;
 
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import application.Main;
@@ -382,6 +386,57 @@ public class Partida {
 		return mejoresPuntajes;
 	}
 	
+	public void guardar() {
+		FileOutputStream fS = null;
+		ObjectOutputStream oS = null;
+		try {
+			fS = new FileOutputStream("data/puntajes.txt", true);
+			oS = new ObjectOutputStream(fS);
+			oS.writeObject(mejoresPuntajes);
+		} catch (IOException ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			try {
+				if (jugadores != null) {
+					fS.close();
+				}
+				if (oS != null) {
+					oS.close();
+				}
+			} catch (IOException ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+	}
+	
+	public void recuperarData() {
+		FileInputStream fS = null;
+		ObjectInputStream oS = null;
+		ArrayList<Jugador> users = null;
+		try {
+			fS = new FileInputStream("data/puntajes.txt");
+			oS = new ObjectInputStream(fS);
+			users = (ArrayList<Jugador>) oS.readObject();
+			setMejoresPuntajes(users);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			try {
+				if (fS != null) {
+					fS.close();
+				}
+				if (oS != null) {
+					oS.close();
+				}
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+
+	public void setMejoresPuntajes(ArrayList<Jugador> mejoresPuntajes) {
+		this.mejoresPuntajes = mejoresPuntajes;
+	}
 
 
 }

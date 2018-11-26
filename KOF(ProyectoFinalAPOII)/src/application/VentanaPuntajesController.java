@@ -32,6 +32,7 @@ public class VentanaPuntajesController {
 	}
 	
 	public void mostrar() {
+		Main.getPartida().recuperarData();
 		Main.getPartida().inOrden(Main.getPartida().getJugadores());
 		ArrayList a= Main.getPartida().getMejoresPuntajes();
 		List<String> list=new ArrayList<String>();
@@ -67,6 +68,7 @@ public class VentanaPuntajesController {
 						ButtonType butt = new ButtonType("aceptar");
 						alert.getButtonTypes().setAll(butt);
 						Optional<ButtonType>as=alert.showAndWait();
+					
 					} catch (JugadorNoEncontradoException f) {
 						// TODO Auto-generated catch block
 						f.printStackTrace();
