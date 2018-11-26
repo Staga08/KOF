@@ -1,11 +1,16 @@
 package application;
 
 import java.io.File;
+import java.sql.Time;
+import java.util.Currency;
+
+import javax.management.timer.Timer;
 
 import com.sun.javafx.geom.Point2D;
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,6 +33,8 @@ public class VentanaJuegoController {
 	@FXML private Timeline animation2;
 	@FXML private Timeline animation3;
 	@FXML private Timeline animation4;
+	@FXML private Timeline animation5;
+	private Object FxTimer;
 	
 	
 	/**
@@ -112,6 +119,32 @@ public class VentanaJuegoController {
 	public void animacion5() {
 		Main.getPartida().get(Main.getPartida().getPosP()).atacar();
 		refreshP1();
+		 PauseTransition wait = new PauseTransition(Duration.seconds(4));
+		    wait.setOnFinished((e) -> {
+		       animacion6();
+		        wait.playFromStart();
+		    });
+		    wait.play();
+		
+	}
+	
+	public void animacion6() {
+		Main.getPartida().get(Main.getPartida().getPosP()).dejarDeatacar();
+		Main.getPartida().get(Main.getPartida().getPosP2()).dejarDeatacar();
+		refreshP1();
+		refreshP2();
+		animation5 = new Timeline(new KeyFrame(Duration.millis(30), f-> {
+			if (p1.getLayoutX()<90) {
+				animation5.stop();
+				
+			}
+			Main.getPartida().get(Main.getPartida().getPosP()).retrocederP1(3);
+			p1.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP()).getPosX());
+			Main.getPartida().get(Main.getPartida().getPosP2()).retrosederP2(3);
+			p2.setLayoutX(Main.getPartida().get(Main.getPartida().getPosP2()).getPosX());
+		}));
+		animation5.setCycleCount(Timeline.INDEFINITE);
+		animation5.play();
 	}
 	
 	public void refreshP1() {
