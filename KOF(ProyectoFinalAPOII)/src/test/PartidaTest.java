@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
+import excepciones.PuntajeNoExisteException;
 import modelo.IConstantes;
 import modelo.Jugador;
 import modelo.Partida;
@@ -19,13 +20,15 @@ class PartidaTest {
 	private Jugador j3;
 	private Jugador j4;
 	
-	
+	/**
+	 * escenario1(): void - crea una partida
+	 * */
 	void escenario1() {
 		p = new Partida();
 	}
 	
 	/**
-	 * setupEscenario2(): void - crea una partida con 7 jugadores
+	 * escenario2(): void - crea una partida con 7 jugadores
 	 * */
 	void escenario2() {
 		p = new Partida();
@@ -48,7 +51,7 @@ class PartidaTest {
 	
 	
 	/**
-	 *  setupEscenario3() : void - costruye un arbol de jugadores
+	 *  escenario3() : void - costruye un arbol de jugadores
 	 *  con tres jugadores
 	 * */
 	void escenario3() {		
@@ -65,7 +68,7 @@ class PartidaTest {
 	
 	
 	/**
-	 * setupEscenario4() : void - construye una partida con nueve jugadores 
+	 * escenario4() : void - construye una partida con nueve jugadores 
 	 * */
 	void escenario4() {
 		
@@ -90,9 +93,9 @@ class PartidaTest {
 	}
 	
 	/**
-	 * setupEscenario6() : construye una partida con un solo jugador. 
+	 * escenario5() : construye una partida con un solo jugador. 
 	 * */
-	void setupEscenario6() {
+	void escenario5() {
 		escenario1();
 		try {
 			p.agregar("jugadorExistente");
@@ -101,6 +104,30 @@ class PartidaTest {
 		} catch(JugadorNoEncontradoException e) {
 			
 		}
+	}
+	
+	/**
+	 * escenario() : construye una partida con un solo jugador. 
+	 * */
+	void escenario6() {
+		escenario1();
+		Jugador walter = new Jugador("Walter", 450);
+		Jugador brayan = new Jugador("Brayan", 450);
+		Jugador brito = new Jugador("Brito", 405);
+		Jugador fabian = new Jugador("Fabian", 340);
+		try {
+			p.agregar(walter.getNickName());
+			p.agregar(brayan.getNickName());
+			p.agregar(brito.getNickName());
+			p.agregar(fabian.getNickName());
+		} catch (JugadorNoEncontradoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JugadorYaRegistradoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**
@@ -213,7 +240,7 @@ class PartidaTest {
 	 */
 	@Test
 	void testAgregar5() {
-		setupEscenario6();
+		escenario5();
 		try {
 			p.agregar("jugadorExistente");
 		} catch (JugadorYaRegistradoException e) {
@@ -238,7 +265,7 @@ class PartidaTest {
 	 */
 	@Test
 	void testExiste() {
-		setupEscenario6();
+		escenario5();
 		
 		assertTrue(	p.existe("jugadorExistente") , "este jugador ya ha sido agregado en el arbol");
 		
@@ -289,6 +316,18 @@ class PartidaTest {
 		assertEquals(IConstantes.IORI_MOV_IZQ, p.get(3).getSkin());
 		assertEquals(IConstantes.RYO_MOV_IZQ, p.get(4).getSkin());
 		assertEquals(IConstantes.TERRY_MOV_IZQ, p.get(5).getSkin());
+	}
+	
+	@Test
+	void testBuscarPuntaje() {
+		escenario6();
+		try {
+			Jugador buscado = p.buscarPuntaje(448);
+			assertEquals("Brayan", buscado);
+		} catch (PuntajeNoExisteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
