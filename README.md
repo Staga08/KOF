@@ -1,7 +1,7 @@
 Proyecto Final De Algoritmos Y Programacion II, Proyecto "The King of Fighters"
 
-Autores: Julian Andrés Brito Escobar
-         Bryan Starlin Garcés Portillo
+Autores: Julian Andrés Brito Escobar -
+         Bryan Starlin Garcés Portillo -
          Fabian David Portilla 
          
 
