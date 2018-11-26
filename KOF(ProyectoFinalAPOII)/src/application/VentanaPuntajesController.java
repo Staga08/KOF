@@ -34,11 +34,12 @@ public class VentanaPuntajesController {
 	public void mostrar() {
 //		Main.getPartida().recuperarData();
 		Main.getPartida().inOrden(Main.getPartida().getJugadores());
+		Main.getPartida().ordenarPorInsercion();
 		ArrayList a= Main.getPartida().getMejoresPuntajes();
 		List<String> list=new ArrayList<String>();
 		for (int i = 0; i < a.size(); i++) {
 			Jugador per=  (Jugador) a.get(i);
-			System.out.println(per.getNickName()+"huh");
+//			System.out.println(per.getNickName()+"huh");
 			list.add(per.getNickName());
 			
 		}

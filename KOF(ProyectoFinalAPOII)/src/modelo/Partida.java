@@ -235,7 +235,7 @@ public class Partida {
 		for (int i = 1; i < auxArreglo.length; i++) {
 			
 			for (int j = i; j > 0 && 
-				auxArreglo[j-1].getPuntaje() > auxArreglo[j].getPuntaje() ; j--) {
+				auxArreglo[j-1].compareTo(auxArreglo[j])>0 ; j--) {
 		
 				Jugador temp = auxArreglo[j];
 				auxArreglo[j] = auxArreglo[j-1];
