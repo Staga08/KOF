@@ -36,6 +36,7 @@ public class Partida {
 	private int posP2;
 	private String back;
 	private Personaje personaje;
+	private String referencia;
 	
 	public Partida() {
 		this.jugadores=null;
@@ -458,6 +459,14 @@ public class Partida {
 				System.out.println(e.getMessage());
 			}
 		}
+	}
+
+	public String getReferencia() {
+		return referencia;
+	}
+
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
 	}
 
 	

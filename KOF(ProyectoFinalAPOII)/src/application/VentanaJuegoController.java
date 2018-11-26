@@ -10,6 +10,7 @@ import javax.management.timer.Timer;
 import com.sun.javafx.geom.Point2D;
 import com.sun.javafx.scene.paint.GradientUtils.Point;
 
+import excepciones.JugadorNoEncontradoException;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
@@ -175,16 +176,25 @@ public class VentanaJuegoController {
 		gameOver.setText("GAME OVER");
 		SecureRandom random = new SecureRandom();
 		int puntaje = random.nextInt(1000)+100;
-		Main.getPartida().inOrden(Main.getPartida().getJugadores());
-		Main.getPartida().getMejoresPuntajes().get(Main.getPartida().
-				getMejoresPuntajes().size()-1).setPuntaje(puntaje);
+		try {
+			Main.getPartida().buscarJugador(Main.getPartida().getReferencia()).setPuntaje(puntaje);
+		} catch (JugadorNoEncontradoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("GAME OVER");
 		alert.setHeaderText(null);
-		alert.setContentText("Tu puntaje es: "+Integer.toString(Main.getPartida().
-				getMejoresPuntajes().get(Main.getPartida().getMejoresPuntajes().size()-1).getPuntaje()));
+		try {
+			alert.setContentText("Tu puntaje es: "+Integer.toString(Main.getPartida().
+					buscarJugador(Main.getPartida().getReferencia()).getPuntaje()));
+		} catch (JugadorNoEncontradoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
 		stage.getIcons().add(new Image(new File("imagenes/Icon.png").toURI().toString()));
+		Main.getPartida().guardar();
 		alert.show();
 	}
 	

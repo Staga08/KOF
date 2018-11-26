@@ -41,7 +41,7 @@ public class VentanaPuntajesController {
 		for (int i = 0; i < a.size(); i++) {
 			Jugador per=  (Jugador) a.get(i);
 //			System.out.println(per.getNickName()+"huh");
-			list.add(per.getNickName());
+			list.add(per.toString());
 			
 		}
 		ObservableList<String> nickLista=FXCollections.observableList(list);

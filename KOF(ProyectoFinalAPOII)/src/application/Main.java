@@ -50,6 +50,7 @@ public class Main extends Application {
 				try {
 					Main.getPartida().agregar(result.get());
 					Main.getPartida().guardar();
+					Main.getPartida().setReferencia(result.get());
 				} catch (JugadorNoEncontradoException | JugadorYaRegistradoException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

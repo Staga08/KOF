@@ -121,6 +121,15 @@ public class Jugador  implements Serializable , Comparable<Jugador>{
 		return nickName.compareToIgnoreCase(jugador.getNickName());
 	}
 	
+	/**
+	 * toString : String metodo sobreescrito de la clase Odject  
+	 * @return String con la infomacion basica del jugador
+	 * */
+	@Override
+	public String toString() {
+		return nickName+"  "+puntaje; 
+	}
+	
 
 
 }
