@@ -32,7 +32,7 @@ public class VentanaPuntajesController {
 	}
 	
 	public void mostrar() {
-		Main.getPartida().recuperarData();
+//		Main.getPartida().recuperarData();
 		Main.getPartida().inOrden(Main.getPartida().getJugadores());
 		ArrayList a= Main.getPartida().getMejoresPuntajes();
 		List<String> list=new ArrayList<String>();

@@ -390,9 +390,9 @@ public class Partida {
 		FileOutputStream fS = null;
 		ObjectOutputStream oS = null;
 		try {
-			fS = new FileOutputStream("data/puntajes.txt", true);
+			fS = new FileOutputStream("data/puntajes.txt");
 			oS = new ObjectOutputStream(fS);
-			oS.writeObject(mejoresPuntajes);
+			oS.writeObject(jugadores);
 		} catch (IOException ex) {
 			System.out.println(ex.getMessage());
 		} finally {
@@ -412,12 +412,14 @@ public class Partida {
 	public void recuperarData() {
 		FileInputStream fS = null;
 		ObjectInputStream oS = null;
-		ArrayList<Jugador> users = null;
+//		ArrayList<Jugador> users = null;
 		try {
 			fS = new FileInputStream("data/puntajes.txt");
 			oS = new ObjectInputStream(fS);
-			users = (ArrayList<Jugador>) oS.readObject();
-			setMejoresPuntajes(users);
+//			Jugador nuevaRaiz = (Jugador)ois.readObject();
+//			raiz = nuevaRaiz;
+			Jugador users = (Jugador)oS.readObject();
+			jugadores = users;
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		} finally {
