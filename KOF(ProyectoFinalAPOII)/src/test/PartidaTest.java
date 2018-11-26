@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import excepciones.JugadorNoEncontradoException;
 import excepciones.JugadorYaRegistradoException;
+import modelo.IConstantes;
 import modelo.Jugador;
 import modelo.Partida;
+import modelo.Personaje;
 
 class PartidaTest {
 	
@@ -266,14 +268,27 @@ class PartidaTest {
 		
 	}
 	
-//	@Test
-//	void testCargarEnemigos() {
-//		escenario1();
-//		p.cargarPersonajes();
-//		assertEquals("/KOF(ProyectoFinalAPOII)/imagenes/iori der/image3.gif", p.getPersonaje1().getSkin());
-//		assertEquals("/KOF(ProyectoFinalAPOII)/imagenes/ryo der/oie_23204511wPl35c3p.gif", p.getPersonaje1().getSiguiente().getSkin());
-//		assertEquals("/KOF(ProyectoFinalAPOII)/imagenes/iori izq/kof-xiii-iori-yagami-sprite.gif", p.getPersonaje2().getSkin());
-//		assertEquals("/KOF(ProyectoFinalAPOII)/imagenes/ryo izq/bc3d376ed970bd95cf8788bd8010e5dd.gif", p.getPersonaje2().getSiguiente().getSkin());
-//	}
+	@Test
+	void testCreaLista() {
+		escenario1();
+		Personaje personaje1 = new Personaje(50, 10, IConstantes.CANTIDADVIDA, IConstantes.IORI_MOV_DER);
+		Personaje personaje2 = new Personaje(50, 10,  IConstantes.CANTIDADVIDA, IConstantes.RYO_MOV_DER);
+		p.crearLista(personaje1);
+		p.crearLista(personaje2);
+		assertEquals(p.getPersonaje().getSkin(),IConstantes.IORI_MOV_DER);
+		assertEquals(p.getPersonaje().getSiguiente().getSkin(),IConstantes.RYO_MOV_DER);
+	}
+	
+	@Test
+	void testCargarEnemigos() {
+		escenario1();
+		p.cargarPersonajes();
+		assertEquals(IConstantes.IORI_MOV_DER, p.get(0).getSkin());
+		assertEquals(IConstantes.RYO_MOV_DER, p.get(1).getSkin());
+		assertEquals(IConstantes.TERRY_MOV_DER, p.get(2).getSkin());
+		assertEquals(IConstantes.IORI_MOV_IZQ, p.get(3).getSkin());
+		assertEquals(IConstantes.RYO_MOV_IZQ, p.get(4).getSkin());
+		assertEquals(IConstantes.TERRY_MOV_IZQ, p.get(5).getSkin());
+	}
 
 }
